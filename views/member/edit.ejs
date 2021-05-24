@@ -5,7 +5,7 @@
             <% if (member.userImg) { %>
                 <img src="<%=member.userImg%>" alt="user_img">
             <% } else { %>
-                <img src="/images/default-tinkerbell.png" alt="tinkerbell">
+                <img src="/images/avatars/default-tinkerbell.png">
             <% }  %>
             <h3><%=member.first_name%></h3>
             <form action="/member/profile/<%= member.id %>?_method=PUT" method="POST">
@@ -26,5 +26,4 @@
             </form>
             <% } %>
     </section>
-</body>
-</html>
+<%- include('../template/footer') %>

@@ -1,0 +1,46 @@
+/*Create Pattern START*/
+.container {
+    padding: 10px 50px;
+    }
+    .formbox {
+        flex-direction: column;
+        background-color: rgba(161, 104, 13, 0.505);
+        justify-content: center;
+        width: 60vw;
+        max-width: 900px;
+        height: auto;
+        color: black;
+        margin: auto;
+    }
+    .formbox h4 {
+        margin: 5px;
+    }
+    .createBox {
+        display: flex;
+        flex-direction: column;
+    }
+    .createBox div {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: right;
+        width: 100%;
+    }
+    .radiobtn {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .labels{
+        display: inline-block;
+        width: 20%;  
+        font-size: 18px;
+    }
+    .radiobtn label {
+        justify-content: right;
+        width: 100%;
+    }
+    .input-box {
+        justify-content: right;
+        width: 75%;
+    }
+    /*Create Pattern END*/

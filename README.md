@@ -42,3 +42,5 @@ A central location for collection of crochet, knitting, and sewing projects
 
 ### Sources: 
 Dropdown functionality: https://www.w3schools.com/css/css_dropdowns.asp
+Text-shadowing: https://stackoverflow.com/questions/13426875/text-border-using-css-border-around-text
+Textbox alignment: https://www.w3docs.com/snippets/html/how-to-align-labels-next-to-inputs.html

@@ -5,7 +5,7 @@
             <% if (member.profileImg !== 'default') { %>
                 <img src="<%=member.profileImg%>">
             <% } else { %>
-                <img src="/images/default-tinkerbell.png">
+                <img src="/images/avatars/default-tinkerbell.png">
             <% }  %>
         <h3><%=member.first_name%></h3>
 
@@ -22,5 +22,4 @@
     <article>
         <h4>Projects</h4>
     </article>
-</body>
-</html>
+<%- include('../template/footer') %>

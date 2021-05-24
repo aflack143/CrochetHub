@@ -1,10 +1,10 @@
-* {
+/* * {
     border: 1px solid darkolivegreen;
-}
+} */
 
 body {
-    background-color: lightgoldenrodyellow;
-    color: cornflowerblue;
+    background-color: lemonchiffon;
+    color: coral;
     font-family: 'Acme', sans-serif;
     font-size: 20px;
     max-height: 100vh;
@@ -17,71 +17,102 @@ body {
     text-align: center;
 }
 
+main {
+    background-image: url("../images/for-css/basket-with-wool-yarn-copy-space.jpg");
+    background-size: 100vw 80vh;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 95vh;
+}
+
+footer {
+    background-color: coral;
+    color: lemonchiffon;
+    height: 5vh;
+    margin: 0;
+    padding: 0;
+}
+/* footer p {
+    height: 100%;
+} */
+
+li {
+    list-style: none;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+   }
+
+
+/*Create Pattern START*/
 .container {
 padding: 10px 50px;
 }
-
 .formbox {
     flex-direction: column;
     background-color: rgba(161, 104, 13, 0.505);
     justify-content: center;
     width: 60vw;
+    max-width: 900px;
     height: auto;
     color: black;
     margin: auto;
 }
-
 .formbox h4 {
     margin: 5px;
 }
-
 .createBox {
     display: flex;
     flex-direction: column;
 }
-
 .createBox div {
-    justify-content: center;
     flex-direction: row;
     flex-wrap: nowrap;
+    justify-content: right;
     width: 100%;
 }
-
-.labels {
-    width: 25%;  
+.radiobtn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
-
+.labels{
+    display: inline-block;
+    width: 20%;  
+    font-size: 18px;
+}
+.radiobtn label {
+    justify-content: right;
+    width: 100%;
+}
 .input-box {
-    /* justify-content: left; */
+    justify-content: right;
     width: 75%;
-    margin: 0;
 }
+/*Create Pattern END*/
 
-li {
-     list-style: none;
- }
- 
- header {
+
+    
+/* Nav bar dropdown START */
+header {
     font-size: larger;
     margin: 0;
-    background-image: url('../images/banner.png');
+    background-image: url('../images/for-css/banner.png');
     color: lightgoldenrodyellow;
-    background-color: blue;
+    background-color: cornflowerblue;
     background-size: 100vw;
     background-repeat: no-repeat;
     text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;;
- }
- 
-a {
-    text-decoration: none;
-    color: inherit;
 }
-
-/* Nav bar dropdown */
 nav {
     display: flex;
     flex-direction: row; 
     justify-content: flex-end;
+    margin-bottom: 5px;
+    /* background-color: rgb(202, 172, 4); */
 }
 .navitem {
     margin: 0px 20px;
@@ -89,8 +120,7 @@ nav {
 .dropdown {
    position: relative;
    display: inline-block;
-}
- 
+} 
 .dropdown .dropbtn {
    overflow: hidden;
    font-size: 20px;  
@@ -109,23 +139,23 @@ nav {
    box-shadow: 0px 8px 16px 0px rgba(0,0,0,.5);
    z-index: 1;
    right: 0;
-   /* text-shadow: inherit; */
+   text-shadow: none;
 }
 .dropdown-content a {
    /* float: left; */
-   color: inherit;
+   color: black;
    padding: 12px 16px;
    text-decoration: none;
    display: block;
    text-align: left;
-}
- 
+   font-size: 18px;
+} 
 .dropdown-content a:hover {
    background-color: cornflowerblue;    
    /* font-weight: bolder; */
    text-shadow: inherit;
 }
- 
 .dropdown:hover .dropdown-content {
    display: block;
 }
+/* Nav bar dropdown END */
