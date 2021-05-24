@@ -1,0 +1,16 @@
+<%- include('./template/header') %>
+    <h3><%= pattern.title %></h3>
+    <h5>Created by <%= pattern.title %></h5>
+    <img href='<%= pattern.introImg %>'>
+    <p><%= pattern.introContent %></p>
+    <p><%= pattern.itemsNeeded %></p>
+    <p><%= pattern.contentHowTo %></p>
+    <img href='<%= pattern.introImg %>'>
+    <p><%= pattern.endingContent %></p>
+    <div class='deletePattern'>
+        <form action="/pattern<%= pattern.id %>?_method=DELETE" method=POST>
+            <input type="submit" value="Delete Pattern"/>
+        </form>
+    </div>
+</body>
+</html>

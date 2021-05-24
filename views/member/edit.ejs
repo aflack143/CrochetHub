@@ -1,0 +1,29 @@
+<%- include('../template/header') %>
+    <section>
+        <% if (member) { %>
+            <% if (member.userImg !== '') { %>
+                <img src="<%=member.userImg%>" alt="user_img">
+            <% } else { %>
+                <img src="/images/default-tinkerbell.png" alt="tinkerbell">
+            <% }  %>
+            <h3><%=member.first_name%></h3>
+            <form action="/member/profile/<%= member.id %>?_method=PUT" method=POST>
+                <label for="userImg">Profile picture:</label>
+                <input type="file" name="userImg"><br>
+                <label for="name">Name:</label>
+                <input type="text" name="name" value="<%=member.first_name%>"><br>
+                <label for="email">Email:</label>
+                <input type="text" name="email" value="<%=member.email%>"><br>
+                <label for="username">Username:</label>
+                <input type="text" name="username" value="<%=member.username%>"><br>
+                <label for="password">Password:</label>
+                <input type="password" name="password" value="<%=member.password%>"><br>
+                <input type="submit" value="Update profile"/>
+            </form>
+            <form action="/member/profile/<%= member.id %>?_method=DELETE" method=POST>
+                <input type="submit" value="Delete Member Profile"/>
+            </form>
+            <% } %>
+    </section>
+</body>
+</html>

@@ -1,0 +1,17 @@
+/* * {
+    border: 1px solid darkolivegreen;
+} */
+
+body {
+    background-color: lightgoldenrodyellow;
+    color: cornflowerblue;
+    font-family: 'Acme', sans-serif;
+    font-size: 20px;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    flex-grow: 3;
+    margin: 0;
+    text-align: center;
+}

@@ -1,0 +1,26 @@
+<%- include('./template/header') %>
+    <h1>Welcome to Crochet Hub</h1>
+    <h2>Community of Crocheters sharing their crochet projects.</h2>
+    <section class='pattern'>
+        <p>Review patterns below or search</p>
+        <input type="search" name="search" placeholder="search"/>
+        <input type="submit" name="search"/>
+        <ul>
+        <% for (let i=0; i < pattern.length; i++) { %>
+            <li>
+                <b><a href="/pattern/<%= pattern[i].patternType %>/<%= pattern[i].id %>"><%= pattern[i].title%></a></b>
+            </li>
+        <% } %>
+        </ul>
+    </section>
+    <section class='member'>
+        <ul>
+            <% for (let i=0; i < member.length; i++) { %>
+                <li>
+                    <b><a href="/member/profile/<%= member[i].id %>"><%= member[i].username%></a></b>
+                </li>
+            <% } %>
+            </ul>
+    </section>
+</body>
+</html>
