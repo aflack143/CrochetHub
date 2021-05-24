@@ -1,6 +1,6 @@
-/* * {
+* {
     border: 1px solid darkolivegreen;
-} */
+}
 
 body {
     background-color: lightgoldenrodyellow;
@@ -18,22 +18,45 @@ body {
 }
 
 .container {
-    justify-content: center;
-    align-content: center;
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(161, 104, 13, 0.505);
-    width: 50vw;
-    max-width: 500px;
+padding: 10px 50px;
 }
 
-.form-box {
-    justify-content: left;
-    align-content: center;
+.formbox {
+    flex-direction: column;
+    background-color: rgba(161, 104, 13, 0.505);
+    justify-content: center;
+    width: 60vw;
+    height: auto;
+    color: black;
+    margin: auto;
+}
+
+.formbox h4 {
+    margin: 5px;
+}
+
+.createBox {
     display: flex;
     flex-direction: column;
-    margin: 10px;
 }
+
+.createBox div {
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.labels {
+    width: 25%;  
+}
+
+.input-box {
+    /* justify-content: left; */
+    width: 75%;
+    margin: 0;
+}
+
 li {
      list-style: none;
  }
