@@ -28,7 +28,7 @@ const showPattern = (req, res) => {
     Pattern.findByPk(req.params.index, {
         include: [{
             model: Member,
-            attributes: ['userId','first_name','aboutMe'] 
+            attributes: ['id','first_name','aboutMe'] 
         }]
     }).then(pattern => {
         Member.findAll().then(allMembers => {

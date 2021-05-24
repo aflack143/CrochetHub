@@ -42,7 +42,7 @@ const renderEdit = (req, res) => {
     Member.findByPk(req.params.index, {
         include: [{
             model: Pattern,
-            attributes: ['userId','title', 'introContent'] 
+            attributes: ['memberId','title', 'introContent'] 
         }]
     }).then(member => {
         Pattern.findAll().then(allPattern => {
