@@ -41,3 +41,4 @@ A central location for collection of crochet, knitting, and sewing projects
 
 
 ### Sources: 
+Dropdown functionality: https://www.w3schools.com/css/css_dropdowns.asp

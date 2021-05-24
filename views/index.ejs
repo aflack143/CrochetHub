@@ -1,7 +1,20 @@
-<%- include('./template/header') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+<header>
     <h1>Welcome to Crochet Hub</h1>
-    <h2>Community of Crocheters sharing their crochet projects.</h2>
-    <section class='pattern'>
+    <h4>Community sharing their crochet patterns and other projects.</h2>
+    <%- include('./template/navbar') %>
+<section class='welcome'>
+    <div class='pattern'>
         <p>Review patterns below or search</p>
         <input type="search" name="search" placeholder="search"/>
         <input type="submit" name="search"/>
@@ -12,15 +25,16 @@
             </li>
         <% } %>
         </ul>
-    </section>
-    <section class='member'>
+    </div>
+    <div class='member'>
         <ul>
             <% for (let i=0; i < member.length; i++) { %>
                 <li>
                     <b><a href="/member/profile/<%= member[i].id %>"><%= member[i].username%></a></b>
                 </li>
             <% } %>
-            </ul>
-    </section>
+        </ul>
+    </div>
+</section>
 </body>
 </html>

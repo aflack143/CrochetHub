@@ -1,29 +1,45 @@
 <%- include('./template/header') %>
+<%- include('./template/navbar') %>
 <section id='add' class='container'>
     <div class='form-box'>
         <h4>Add a Crochet Pattern</h4>
         <p></p>
-        <form action="/pattern" method="POST">
+        <form class='createBox' action="/pattern" method="POST">
+            <div>
                 <label for="title">Title:</label>
                 <input type="text" name="title" id="title" class='input-box' maxlength="100" placeholder="eg. title of project"><br>
-                <label for="patternType">Pattern Type:</label>
-                <select type="text" name="patternType" id="patternType" class='input-box'>
-                    <option value="Crochet">Crochet</option>
-                    <option value="Crochet">Knitting</option>
-                    <option value="Crochet">Sewing</option>
-                </select><br>
+            </div>
+            <div>
+                <label for="patternType">Pattern Type:
+                    <input type=radio name="patternType" value="Crochet">Crochet
+                    <input type=radio name="patternType" value="Knitting">Knitting
+                    <input type=radio name="patternType" value="Sewing">Sewing
+                </label><br>
+            </div>
+            <div>
                 <label for="introImg">Title Image:</label>
                 <input type="text" name="introImg" id="introImg" class='input-box' maxlength="100" placeholder="eg. image url"><br>
+            </div>
+            <div>
                 <label for="introContent">About the Pattern:</label>
                 <input type="text" name="introContent" id="introContent" class='input-box' rows='2' maxlength="100"placeholder="eg. description of project, why you created the pattern, etc..."><br>
+            </div>
+            <div>
                 <label for="itemsNeeded">Items/Tools Needed:</label>
                 <textarea type="text" name="itemsNeeded" id="itemsNeeded" class='input-box' rows='3' placeholder="eg. hook: size G / size 3mm, yarn: cotton, nylon"></textarea><br>
+            </div>
+            <div>
                 <label for="contentHowTo">Pattern Instructions:</label>
                 <textarea name="contentHowTo" id="contentHowTo" class='input-box' rows='15' placeholder="eg. steps to begin and complete project"></textarea><br>
+            </div>
+            <div>
                 <label for="finalImg">Product Image:</label>
-                <input type="text" name="finalImg" id="finalImg" class='input-box' maxlength="100" placeholder="eg. image of completed project"><br>
+                <input type="text" name="finalImg" id="finalImg" class='input-box' maxlength="100" placeholder="eg. image url of completed project"><br>
+            </div>
+            <div>
                 <label for="endingContent">Closing Comment(s):</label>
                 <textarea name="endingContent" id="endingContent" class='input-box' rows='3' placeholder="eg. closing comments"></textarea><br>
+            </div>
                 <input type="submit" name="" class='btn btn-reverse' value="Create Pattern!">
         </form>
     </div>
