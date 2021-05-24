@@ -1,7 +1,7 @@
 # crochethub
 
 ## Description:
-A central location for collection of crochet projects
+A central location for collection of crochet, knitting, and sewing projects
 
 ## Brief Example:
 
