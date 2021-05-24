@@ -60,7 +60,7 @@ const editMember = (req, res) => {
 
 const deleteMember = (req, res) => {
     Member.destroy({where: { id: req.params.index }}).then(() => {
-        res.redirect('/member');
+        res.redirect('/');
     });
 };
 

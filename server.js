@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended:false}));
+app.use(methodOverride("_method"));
 
 app.use('/member', routes.member);
 app.use('/', routes.pattern);

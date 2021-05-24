@@ -37,6 +37,22 @@ const showPattern = (req, res) => {
     })
 };
 
+const renderEdit = (req, res) => {
+    Pattern.findByPk(req.params.index).then(pattern => {
+        res.render("edit.ejs", { pattern });
+    })
+};
+
+const postEdit = (req, res) => {
+    Pattern.update(req.body, {
+        where: { 
+            id: req.params.index 
+        }}
+        ).then(pattern => {
+        res.redirect(`/pattern/${pattern.patternType}/${pattern.id}`);
+    })
+};
+
 const deletePattern = (req, res) => {
     Pattern.destroy({where: { id: req.params.index }}).then(() => {
         res.redirect('/');
@@ -48,5 +64,7 @@ const deletePattern = (req, res) => {
         renderNew,
         postNew,
         showPattern,
+        renderEdit,
+        postEdit,
         deletePattern
     }

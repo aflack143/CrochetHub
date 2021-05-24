@@ -22,37 +22,26 @@ module.exports = {
         type: Sequelize.STRING,
         unique: true,
         allowNull: false
-
-
       },
       username: {
         type: Sequelize.STRING,
         unique: true,
         allowNull: false
-
-
       },
       password: {
         type: Sequelize.STRING,
         allowNull: false
-
       },
       profileImg: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        defaultValue: 'default'
+        type: Sequelize.STRING
       },
       aboutMe: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        defaultValue: 'About Me...'
-
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: new Date()
-
       },
       updatedAt: {
         allowNull: false,

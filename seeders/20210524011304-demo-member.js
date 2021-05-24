@@ -9,7 +9,6 @@ module.exports = {
         email: 'au@au',
         username: 'admin',
         password: 'password',
-        profileImg: 'default',
         aboutMe: 'Setting up a functioning website!!'
       },
       {
@@ -18,7 +17,6 @@ module.exports = {
         email: 'tu@tu',
         username: 'test',
         password: 'password',
-        profileImg: 'default',
         aboutMe: 'Testing the functioning of this website!'
       }], {});
 

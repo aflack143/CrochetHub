@@ -13,9 +13,9 @@
         <p><%=member.aboutMe%></p>
     </section>
     <div>
-        <a href="/profile/<%=member.id%>/edit">Edit profile</a>
-        <form action="/member/profile/<%= member.id %>?_method=DELETE" method=POST>
-            <input type="submit" value="Delete Profile"/>
+        <a href="/member/profile/<%=member.id%>/edit">Edit profile</a>
+        <form action="/member/profile/<%= member.id %>?_method=DELETE" method="POST">
+            <input type="submit" value="Delete Profile">
         </form>
     </div>
     <article>
