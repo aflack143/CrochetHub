@@ -20,7 +20,7 @@ const renderNew = (req, res) => {
 const postNew = (req, res) => {
     console.log(req.body);
     Pattern.create(req.body).then(newPattern => {
-        res.redirect(`/pattern/${newPattern.patternType}/${newPattern.id}`)
+        res.redirect(`/${newPattern.patternType}/${newPattern.id}`)
     });
 };
 
@@ -49,7 +49,7 @@ const postEdit = (req, res) => {
             id: req.params.index 
         }}
         ).then(pattern => {
-        res.redirect(`/pattern/${pattern.patternType}/${pattern.id}`);
+        res.redirect(`/${pattern.patternType}/${pattern.id}`);
     })
 };
 

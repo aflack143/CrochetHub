@@ -1,6 +1,9 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const routes = require('./routes');
+
 
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
@@ -10,9 +13,13 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(methodOverride("_method"));
 
 app.use('/member', routes.member);
-app.use('/', routes.pattern);
+app.use('/pattern', routes.pattern);
+
+app.get('/', (req, res) => {
+    res.render('member/index.ejs')
+  })
 
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log('Listening, Ready in 3..2..1..Crochet!');
 });
