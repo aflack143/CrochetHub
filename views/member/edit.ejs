@@ -8,7 +8,7 @@
                 <img src="/images/avatars/default-tinkerbell.png">
             <% }  %>
             <h3><%=member.first_name%></h3>
-            <form action="/auth/edit?_method=PUT" method="POST">
+            <form action="/member/profile/:index?_method=PUT" method="POST">
                 <label class='profileImg' for="profileImg">Profile Avatar:
                     <% for (let i=0; i< allAvatar.length; i++) { %>
                     <input type=radio class='avatar' name="profileImg" value="<%= allAvatar[i].id %>"><img src="<%= allAvatar[i].imgUrl %>">

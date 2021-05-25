@@ -43,14 +43,14 @@ const deleteMember = (req, res) => {
     });
 };
 
-// const editMember = (req, res) => {
-//     Member.update(req.body, { where: {
-//         id: req.params.index },
-//         returning: true, 
-//         plain: true
-// }).then(updatedMember => {
-//     res.redirect(`/member/profile/${updatedMember[1].dataValues.id}`)}
-// )};
+const editMember = (req, res) => {
+    Member.update(req.body, { where: {
+        id: req.params.index },
+        returning: true, 
+        plain: true
+}).then(updatedMember => {
+    res.redirect(`/member/profile/${updatedMember[1].dataValues.id}`)}
+)};
 
 // const index = (req, res) => {
     //     res.render('member/index.ejs')};
@@ -91,6 +91,6 @@ module.exports = {
     // postLogin,
     showMember,
     renderEdit,
-    // editMember,
+    editMember,
     deleteMember
 }

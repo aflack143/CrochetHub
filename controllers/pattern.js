@@ -1,6 +1,7 @@
 const Member = require('../models').Member;
 const Pattern = require('../models').Pattern;
 const Comment = require('../models').Comment;
+const Avatar = require('../models').Avatar;
 
 const index = (req, res) => {
     Pattern.findAll().then(pattern => {
@@ -28,11 +29,17 @@ const showPattern = (req, res) => {
     Pattern.findByPk(req.params.index, {
         include: [{
             model: Member,
-            attributes: ['id','first_name','aboutMe'] 
+            attributes: ['id','first_name','aboutMe','profileImg'] 
+        // },
+        // {
+        //     model: Avatar,
+        //     attributes: ['id','imgName','imgUrl'] 
         }]
     }).then(pattern => {
         Member.findAll().then(allMembers => {
-            res.render('pattern.ejs', {pattern, member: allMembers})
+            // Avatar.findAll().then(allAvatars => {
+                res.render('pattern.ejs', {pattern, member: allMembers})
+            // })
         })
     })
 };

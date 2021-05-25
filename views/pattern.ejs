@@ -1,7 +1,7 @@
 <%- include('./template/header') %>
 <%- include('./template/navbar') %>
     <h3><%= pattern.title %></h3>
-    <h5>Created by <%= pattern.title %></h5>
+    <h5>Created by <a href="/member/profile/<%= pattern.memberId %>"><%= pattern.Member.first_name %></a></h5>
     <img href='<%= pattern.introImg %>'>
     <p><%= pattern.introContent %></p>
     <p><%= pattern.itemsNeeded %></p>
@@ -17,3 +17,4 @@
         </form>
     </div>
 <%- include('./template/footer') %>
+
