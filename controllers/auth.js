@@ -8,48 +8,6 @@ const jwt = require('jsonwebtoken');
 // const Comment = require('../models').Comment;
 
 
-// const editMember = (req, res) => {
-//     bcrypt.genSalt(10, (err, salt) => {
-//         if (err) {
-//             res.status(500).json(err);
-//         }
-//         bcrypt.hash(req.body.password, salt, (err, hashedPwd) => {
-//             if (err) {
-//                 res.status(500).json(err);
-//             }
-//             req.body.password = hashedPwd;
-//             Member.update(req.body, { where: {
-//                 id: req.params.index },
-//                 returning: true, 
-//                 plain: true
-//             }).then(updatedMember => {
-//                 const token = jwt.sign(
-//                     {
-//                         username: updatedMember.username,
-//                         id: updatedMember.id
-//                     },
-//                     process.env.JWT_SECRET,
-//                     {
-//                         expiresIn: '30 days'
-//                     },
-//                 );
-//                 console.log(token);
-//                 Avatar.findAll().then(avatar => {
-//                 res.redirect(`/member/profile/${updatedMember[1].dataValues.id}`)
-//                 })
-//                 .catch(err => {
-//                     res.render('member/signup.ejs', {
-//                         msg: 'Username taken'
-//                     })
-//                 })
-//             })
-//         });
-//     });
-// };
-
-
-
-
 const signup = (req, res) => {res.render('auth/signup.ejs')};
     
 const postSignup = (req, res) => {
@@ -77,7 +35,7 @@ const postSignup = (req, res) => {
                 res.redirect(`/member/profile/${newMember.id}`)
                 })
             .catch(err => {
-                res.render('member/signup.ejs', {
+                res.render('auth/signup.ejs', {
                     msg: 'Username taken'
                 })
             })
@@ -113,9 +71,16 @@ const postLogin = (req, res) => {
     });
 };
 
+const logout = (req, res) => {
+    delete req.body.username;
+    res.redirect('/auth/login');
+    console.log(`Token: ${token}`);
+}; 
+
 module.exports = {
     signup,
     postSignup,
     login, 
-    postLogin
+    postLogin,
+    logout
 }

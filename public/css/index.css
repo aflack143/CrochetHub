@@ -3,12 +3,11 @@
 } */
 
 body {
-    background-color: lemonchiffon;
     color: coral;
     font-family: 'Acme', sans-serif;
     font-size: 20px;
-    max-height: 100vh;
     width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-content: space-between;
@@ -18,17 +17,16 @@ body {
 }
 
 main {
-    background-image: url("../images/for-css/basket-with-wool-yarn-copy-space.jpg");
-    background-size: 100vw 80vh;
-    background-repeat: no-repeat;
+    background: url("../images/designs/basket-with-wool-yarn-copy-space.jpg") no-repeat center fixed;
+    background-size: cover;
     width: 100vw;
-    height: 99vh;
+    min-height: 75%;
 }
 
 footer {
     background-color: coral;
-    color: lemonchiffon;
-    height: 5vh;
+    color: lightgoldenrodyellow;
+    height: 5%;
     margin: 0;
     padding: 0;
 }
@@ -100,12 +98,13 @@ padding: 10px 50px;
 header {
     font-size: larger;
     margin: 0;
-    background-image: url('../images/for-css/banner.png');
+    background-image: url('../images/designs/banner.png');
     color: lightgoldenrodyellow;
     background-color: cornflowerblue;
     background-size: 100vw;
     background-repeat: no-repeat;
     text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;;
+    max-height: 15%,
 }
 nav {
     display: flex;
@@ -173,8 +172,7 @@ nav {
     vertical-align: middle;
     width: 50px;
     height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
+    border-radius: 10%;
 }
    
 /* CHECKED STYLES */

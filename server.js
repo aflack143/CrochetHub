@@ -6,6 +6,7 @@ const routes = require('./routes');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const jwt = require('jsonwebtoken');
+// const { member } = require('./controllers');
 
 // app.use(express.static('public'));
 app.use(express.static(__dirname + '/public'));
@@ -26,15 +27,14 @@ const verifyToken = (req, res, next) => {
     )
 }
 
-
-app.get('/', (req, res) => {
-    res.render('member/index.ejs')
-});
+// app.get('/', (req, res) => {
+//     res.render('index.ejs')
+// });
+ 
 
 app.use('/auth', routes.auth);
-// app.use('/member', verifyToken, routes.member);
 app.use('/member', routes.member);
-app.use('/pattern', routes.pattern);
+app.use('/', routes.pattern);
 
 app.listen(process.env.PORT, () => {
     console.log('Listening, Ready in 3..2..1..Crochet!');

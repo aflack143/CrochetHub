@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Avatar.belongsTo(models.Member, {foreignKey: 'id'})
+      Avatar.hasMany(models.Member, {foreignKey: 'profileImg'})
     }
   };
   Avatar.init({

@@ -15,13 +15,24 @@ const index = (req, res) => {
 };
 
 const renderNew = (req, res) => {
-    res.render('create.ejs')
+    Member.findAll().then(member => {
+        res.render('create.ejs', {
+            member
+        })
+    })
 };
 
 const postNew = (req, res) => {
-    console.log(req.body);
-    Pattern.create(req.body).then(newPattern => {
-        res.redirect(`/${newPattern.patternType}/${newPattern.id}`)
+    console.log(req.body)
+        Pattern.create(req.body, {
+            include: [{
+                model: Member,
+                attributes: ['id','username'] 
+            }]
+        }).then(newPattern => {
+            Member.findAll().then(allMembers => {
+                res.redirect(`/pattern/${newPattern.patternType}/${newPattern.id}`)
+        });
     });
 };
 

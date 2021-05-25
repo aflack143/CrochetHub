@@ -3,7 +3,7 @@
 <section id='create' class='container'>
     <div class='formbox'>
         <h4>Add a Pattern</h4>
-        <form class='createBox' action="/pattern" method="POST">
+        <form class='createBox' action="/" method="POST">
             <div>
                 <label class='labels' for="title">Title:</label>
                 <input type="text" name="title" id="title" class='input-box' maxlength="100" placeholder="eg. title of project"><br>
@@ -38,6 +38,15 @@
             <div>
                 <label class='labels' for="endingContent">Closing Comment(s):</label>
                 <textarea name="endingContent" id="endingContent" class='input-box' rows='3' placeholder="eg. closing comments"></textarea><br>
+            </div>
+            <div>
+                <label class='labels' for="memberId">Created by:</label>
+                <select type="dropdown" name="memberId" id="memberId" class='input-box' placeholder="Enter your username">
+                        <option style="display:none"> -- select username -- </option>
+                    <% for (let i=0; i< member.length; i++) { %>
+                        <option value="<%= member[i].id %>"><%= member[i].username %></option>
+                    <% } %>
+                </select><br>
             </div>
             <div>
                 <input type="submit" name="" class='btn btn-reverse' value="Create Pattern!">

@@ -2,32 +2,32 @@
 <%- include('./template/navbar') %>
 <section id='add' class='container'>
     <div class='form-box'>
-        <h4>Add a Crochet Pattern</h4>
+        <h4>Update the Crochet Pattern</h4>
         <p></p>
         <form action="/pattern/<%= pattern.patternType %>/<%= pattern.id %>?_method='PUT'" method="POST">
             <div class='patternBox'>
                 <label for="title">Title:</label>
-                <input type="text" name="title" placeholder="eg. title of pattern"><br>
+                <input type="text" name="title" value="<%= pattern.title %>"><br>
             </div>
             <div class='patternBox'>
                 <label for="introImg">Title Image:</label>
-                <input type="text" name="introImg" placeholder="eg. image url"><br>
+                <input type="text" name="introImg" value="<%= pattern.title %>"><br>
             </div>
             <div class='patternBox'>
                 <label for="introContent">Introduction:</label>
-                <input type="text" name="introContent" placeholder="eg. description of pattern"><br>
+                <input type="text" name="introContent" value="<%= pattern.introContent %>"><br>
             </div>
             <div class='patternBox'>
                 <label for="itemsNeeded">Items/Tools Needed:</label>
-                <input type="password" name="password" placeholder="eg. hook: size G / size 3mm, yarn: cotton, nylon"><br>
+                <input type="itemsNeeded" name="itemsNeeded" value="<%= pattern.itemsNeeded %>"><br>
             </div>
             <div class='patternBox'>
                 <label for="contentHowTo">Title Image:</label>
-                <input type="text" name="contentHowTo" placeholder="eg. steps to begin and complete pattern"><br>
+                <input type="text" name="contentHowTo" value="<%= pattern.contentHowTo %>"><br>
             </div>
             <div class='patternBox'>
                 <label for="finalImg">Pattern Image:</label>
-                <input type="text" name="introImg" placeholder="eg. image of completed pattern"><br>
+                <input type="text" name="introImg" value="<%= pattern.title %>"><br>
             </div>
                 <input type="submit" name="" value="Sign Up!">
         </form>

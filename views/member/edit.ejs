@@ -1,17 +1,34 @@
 <%- include('../template/header') %>
-<%- include('../template/navbar') %>
+<nav>
+    <div class="navitem">
+        <input type="search" name="search" placeholder="search"/>
+        <input type="submit" name="search"/>
+    </div>
+    <a class="navitem" href="/">Home</a>
+    <div class="dropdown navitem">
+        <button class="dropbtn">MENU</button>
+        <div class="dropdown-content">
+            <a href="/pattern/create">Create Pattern</a>
+            <a href="/member/profile/<%=member.id%>">View Profile</a>
+</nav>
+</header>
+<main>
     <section>
         <% if (member) { %>
-            <% if (member.userImg) { %>
-                <img src="<%=member.Avatars.profileImg%>">
+            <% if (member.profileImg) { %>
+                <img src="<%=member.Avatar.imgUrl%>">
             <% } else { %>
                 <img src="/images/avatars/default-tinkerbell.png">
             <% }  %>
             <h3><%=member.first_name%></h3>
-            <form action="/member/profile/:index?_method=PUT" method="POST">
+            <form action="/member/profile/<%=member.id%>?_method=PUT" method="POST">
                 <label class='profileImg' for="profileImg">Profile Avatar:
                     <% for (let i=0; i< allAvatar.length; i++) { %>
-                    <input type=radio class='avatar' name="profileImg" value="<%= allAvatar[i].id %>"><img src="<%= allAvatar[i].imgUrl %>">
+                    <% if (i+1 === member.profileImg) { %>
+                        <input checked type="radio" class='avatar' name="profileImg" value="<%= i+1 %>"><img src="<%= allAvatar[i].imgUrl %>">
+                    <% } else { %>
+                        <input type="radio" class='avatar' name="profileImg" value="<%= i+1 %>"><img src="<%= allAvatar[i].imgUrl %>">
+                        <% } %>
                     <% } %>
                 </label><br>
                 <label for="first_name">First Name:</label>
@@ -19,13 +36,11 @@
                 <label for="last_name">Last Name:</label>
                 <input type="text" name="last_name" value="<%=member.last_name%>"><br>
                 <label for="aboutMe">About Me:</label>
-                <textarea type="text" name="aboutMe" rows="5" value="<%=member.aboutMe%>"></textarea>><br>
+                <textarea type="text" name="aboutMe" rows="3" value="<%=member.aboutMe%>"></textarea><br>
                 <label for="email">Email:</label>
                 <input type="text" name="email" value="<%=member.email%>"><br>
                 <label for="username">Username:</label>
                 <input type="text" name="username" value="<%=member.username%>"><br>
-                <label for="password">Password:</label>
-                <input type="password" name="password" value="<%=member.password%>"><br>
                 <input type="submit" value="Update profile"/>
             </form>
             <form action="/member/profile/<%= member.id %>?_method=DELETE" method="POST">

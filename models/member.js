@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Member.hasMany(models.Comment, {foreignKey: 'memberId'}),
       Member.hasMany(models.Pattern, {foreignKey: 'memberId'}),
-      Member.belongsTo(models.Avatar, {foreignKey: 'id'})
+      Member.belongsTo(models.Avatar, {foreignKey: 'profileImg'})
     }
   };
   Member.init({
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     username: DataTypes.STRING,
     password: DataTypes.STRING,
-    profileImg: DataTypes.STRING,
+    profileImg: DataTypes.INTEGER,
     aboutMe: DataTypes.STRING
   }, {
     sequelize,

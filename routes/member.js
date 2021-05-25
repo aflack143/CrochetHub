@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const ctrl = require('../controllers');
 
-// router.get('/', ctrl.member.index);
+router.get('/', ctrl.member.index);
 // router.get('/login', ctrl.member.login);
 // router.get('/signup', ctrl.member.signup);
 // router.post('/', ctrl.member.postSignup);

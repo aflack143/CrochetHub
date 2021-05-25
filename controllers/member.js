@@ -14,8 +14,8 @@ const showMember = (req, res) => {
             attributes: ['id','imgName', 'imgUrl'] 
         }]
     }).then(member => {
-        Pattern.findAll().then(allPattern => {
-            res.render('member/profile.ejs', {member, pattern: allPattern})
+        Pattern.findAll().then(pattern => {
+            res.render('member/profile.ejs', {member, pattern})
 })})};
 
 const renderEdit = (req, res) => {
@@ -44,6 +44,7 @@ const deleteMember = (req, res) => {
 };
 
 const editMember = (req, res) => {
+    console.log(req.body);
     Member.update(req.body, { where: {
         id: req.params.index },
         returning: true, 
@@ -52,8 +53,8 @@ const editMember = (req, res) => {
     res.redirect(`/member/profile/${updatedMember[1].dataValues.id}`)}
 )};
 
-// const index = (req, res) => {
-    //     res.render('member/index.ejs')};
+const index = (req, res) => {
+    res.render('member/index.ejs')};
 
 // const signup = (req, res) => {
 //     res.render('member/signup.ejs')};
@@ -84,7 +85,7 @@ const editMember = (req, res) => {
 
 
 module.exports = {
-    // index,
+    index,
     // signup,
     // postSignup,
     // login, 
