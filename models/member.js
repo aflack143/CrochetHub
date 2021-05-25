@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Member.hasMany(models.Comment, {foreignKey: 'memberId'}),
-      Member.hasMany(models.Pattern, {foreignKey: 'memberId'})
-
+      Member.hasMany(models.Pattern, {foreignKey: 'memberId'}),
+      Member.belongsTo(models.Avatar, {foreignKey: 'id'})
     }
   };
   Member.init({

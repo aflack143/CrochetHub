@@ -1,9 +1,59 @@
 const Member = require('../models').Member;
 const Pattern = require('../models').Pattern;
 const Comment = require('../models').Comment;
+const Avatar = require('../models').Avatar;
+
+const showMember = (req, res) => {
+    Member.findByPk(req.params.index, {
+        include: [{
+            model: Pattern,
+            attributes: ['id','memberId','patternType','title', 'introContent'] 
+        },
+        {
+            model: Avatar,
+            attributes: ['id','imgName', 'imgUrl'] 
+        }]
+    }).then(member => {
+        Pattern.findAll().then(allPattern => {
+            res.render('member/profile.ejs', {member, pattern: allPattern})
+})})};
+
+const renderEdit = (req, res) => {
+    Member.findByPk(req.params.index, {
+        include: [{
+            model: Pattern,
+            attributes: ['memberId','title', 'introContent'] 
+        },
+        {
+            model: Avatar,
+            attributes: ['id','imgName', 'imgUrl'] 
+        }]
+    }).then(member => {
+        Pattern.findAll().then(allPattern => {
+            Avatar.findAll().then(allAvatar => {
+            res.render('member/edit.ejs', {member, allPattern, allAvatar})
+        })
+    })
+})};
+
+
+const deleteMember = (req, res) => {
+    Member.destroy({where: { id: req.params.index }}).then(() => {
+        res.redirect('/');
+    });
+};
+
+// const editMember = (req, res) => {
+//     Member.update(req.body, { where: {
+//         id: req.params.index },
+//         returning: true, 
+//         plain: true
+// }).then(updatedMember => {
+//     res.redirect(`/member/profile/${updatedMember[1].dataValues.id}`)}
+// )};
 
 // const index = (req, res) => {
-//     res.render('member/index.ejs')};
+    //     res.render('member/index.ejs')};
 
 // const signup = (req, res) => {
 //     res.render('member/signup.ejs')};
@@ -31,38 +81,7 @@ const Comment = require('../models').Comment;
 //     }
 // )};
 
-const showMember = (req, res) => {
-    Member.findByPk(req.params.index, {
-    }).then(member => {
-        Pattern.findAll().then(allPattern => {
-            res.render('member/profile.ejs', {member, pattern: allPattern})
-})})};
 
-const renderEdit = (req, res) => {
-    Member.findByPk(req.params.index, {
-        include: [{
-            model: Pattern,
-            attributes: ['memberId','title', 'introContent'] 
-        }]
-    }).then(member => {
-        Pattern.findAll().then(allPattern => {
-            res.render('member/edit.ejs', {member})
-})})};
-
-const editMember = (req, res) => {
-    Member.update(req.body, { where: {
-        id: req.params.index },
-        returning: true, 
-        plain: true
-}).then(updatedMember => {
-    res.redirect(`/member/profile/${updatedMember[1].dataValues.id}`)}
-)};
-
-const deleteMember = (req, res) => {
-    Member.destroy({where: { id: req.params.index }}).then(() => {
-        res.redirect('/');
-    });
-};
 
 module.exports = {
     // index,
@@ -72,6 +91,6 @@ module.exports = {
     // postLogin,
     showMember,
     renderEdit,
-    editMember,
+    // editMember,
     deleteMember
 }
