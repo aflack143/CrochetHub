@@ -1,7 +1,7 @@
 <%- include('../template/header') %>
 <%- include('../template/navbar') %>
     <h4>Create your own CrochetHub account.</h4>
-    <form action="/member" method="POST">
+    <form action="/auth" method="POST">
         <label for="first_name">First Name:</label>
         <input type="text" name="first_name" placeholder="first name"><br>
         <label for="last_name">Last Name:</label>
@@ -14,5 +14,5 @@
         <input type="password" name="password" placeholder="password"><br>
         <input type="submit" name="" value="Sign Up!">
     </form>
-    <p>Already have an account?  <a href="/member/login">Log In</a></p>
+    <p>Already have an account?  <a href="/auth/login">Log In</a></p>
 <%- include('../template/footer') %>
