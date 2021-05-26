@@ -21,6 +21,7 @@ const postSignup = (req, res) => {
             }
             req.body.password = hashedPwd;
             Member.create(req.body).then(newMember => {
+                
                 const token = jwt.sign(
                     {
                         username: newMember.username,

@@ -13,13 +13,13 @@
         </nav>
     </header>
 <main>
-    <h3><%= pattern.title %></h3>
-    <h5>Created by <a href="/member/profile/<%= pattern.memberId %>"><%= pattern.Member.first_name %></a></h5>
-    <img href='<%= pattern.introImg %>'>
+    <h2><%= pattern.title %></h2>
+    <h4>Created by <a href="/member/profile/<%= pattern.memberId %>"><%= pattern.Member.first_name %></a></h4>
+    <p>Image:<img src='<%= pattern.introImg %>'></p>
     <p><%= pattern.introContent %></p>
     <p><%= pattern.itemsNeeded %></p>
     <p><%= pattern.contentHowTo %></p>
-    <img href='<%= pattern.introImg %>'>
+    <p>Image: <img src='<%= pattern.Design.imgUrl %>'></p>
     <p><%= pattern.endingContent %></p>
 <%- include('./template/footer') %>
 

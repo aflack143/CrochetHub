@@ -10,7 +10,7 @@ module.exports = {
         introContent: 'Admin setting up initial project',
         itemsNeeded: 'Hook: size G',
         contentHowTo: 'To begin-chain 25',
-        patternImg: 'https://images.freeimg.net/thumbs/crochet-1153219_1280.jpg',
+        patternImg: 8,
 	      endingContent: 'thank you',
         memberId: 1,
         commentId: null
@@ -22,7 +22,7 @@ module.exports = {
         introContent: 'Tester creating 1st project',
         itemsNeeded: 'Hook: size G',
         contentHowTo: 'Row 1-create circle with 5 sc',
-        patternImg: 'https://p1.pxfuel.com/preview/621/641/138/crochet-wool-hobby-thread-royalty-free-thumbnail.jpg',
+        patternImg: 10,
 	      endingContent: 'thank you',
         memberId: 1,
         commentId: null

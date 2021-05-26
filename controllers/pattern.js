@@ -2,6 +2,7 @@ const Member = require('../models').Member;
 const Pattern = require('../models').Pattern;
 const Comment = require('../models').Comment;
 const Avatar = require('../models').Avatar;
+const Design = require('../models').Design;
 
 const index = (req, res) => {
     Pattern.findAll().then(pattern => {
@@ -30,7 +31,7 @@ const postNew = (req, res) => {
                 attributes: ['id','username'] 
             }]
         }).then(newPattern => {
-            Member.findAll().then(allMembers => {
+            Member.findAll().then(member => {
                 res.redirect(`/pattern/${newPattern.patternType}/${newPattern.id}`)
         });
     });
@@ -41,16 +42,16 @@ const showPattern = (req, res) => {
         include: [{
             model: Member,
             attributes: ['id','first_name','aboutMe','profileImg'] 
-        // },
-        // {
-        //     model: Avatar,
-        //     attributes: ['id','imgName','imgUrl'] 
+        },
+        {
+            model: Design,
+            attributes: ['id','imgName','imgUrl'] 
         }]
     }).then(pattern => {
-        Member.findAll().then(allMembers => {
-            // Avatar.findAll().then(allAvatars => {
-                res.render('pattern.ejs', {pattern, member: allMembers})
-            // })
+        Member.findAll().then(member => {
+            Design.findAll().then(design => {
+                res.render('pattern.ejs', {pattern, member, design})
+            })
         })
     })
 };

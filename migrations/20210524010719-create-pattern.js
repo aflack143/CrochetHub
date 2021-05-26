@@ -33,7 +33,7 @@ module.exports = {
         allowNull: false
       },
       patternImg: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       endingContent: {
         type: Sequelize.STRING
