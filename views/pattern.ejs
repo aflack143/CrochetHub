@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <h2>Crochet Hub</h2>
+        <h1>Crochet Hub</h1>
         <nav>
             <div class="navitem">
                 <input type="search" name="search" placeholder="search"/>
@@ -30,14 +30,27 @@
             <section class='title'>
                 <h2><%= pattern.title %></h2>
                 <h4>Created by <a href="/member/profile/<%= pattern.memberId %>"><%= pattern.Member.first_name %></a></h4>
-                <p><img src='<%= pattern.introImg %>'></p>
-                <p><%= pattern.introContent %></p>
+            </section>
+            <section class='intro'>                   
+                <img src='<%= pattern.introImg %>'>
+                <p><%= pattern.introContent %></p>                
             </section>
             <section class='steps'>
-            <p><%= pattern.itemsNeeded %></p>
-            <p><%= pattern.contentHowTo %></p>
-            <p><img src='<%= pattern.Design.imgUrl %>'></p>
-            <p><%= pattern.endingContent %></p>
+                <div>
+                    <h5>Before beginning, these are the items that will be needed:</h5>
+                    <p><%= pattern.itemsNeeded %></p>
+                </div>
+                <div>
+                    <h5>Ready to begin, pattern provided below:</h5>
+                    <p><%= pattern.contentHowTo %></p>
+                </div>
+                <div>
+                    <% if (pattern.Design.imgUrl) { %>
+                    <h5>Once the pattern has been completed, will look similar to the image below:</h5>
+                    <img src='<%= pattern.Design.imgUrl %>'>
+                    <% } %>
+                    <h5><%= pattern.endingContent %></h5>
+                </div>
             </section>
         </section>
         <aside>

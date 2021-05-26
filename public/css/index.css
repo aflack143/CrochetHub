@@ -17,6 +17,10 @@ body {
     text-align: center;
 }
 
+h1 {
+    font-size: 50px;
+}
+
 main {
     background: url("../images/designs/basket-with-wool-yarn-copy-space.jpg") no-repeat center fixed;
     background-size: cover;
@@ -98,13 +102,6 @@ nav {
 /* Nav bar dropdown END */
 
 /* profile images Start */
-
-/* [type=radio] { 
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-} */
 
 .profileImg img {
     vertical-align: middle;
