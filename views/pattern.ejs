@@ -25,14 +25,14 @@
                     <a href="/pattern/<%= pattern.patternType %>/<%= pattern.id %>/edit">Edit Pattern</a>
         </nav>
     </header>
-    <main id='showpattern'>
+    <main>
         <section id='pattern'>
             <section class='title'>
                 <h2><%= pattern.title %></h2>
                 <h4>Created by <a href="/member/profile/<%= pattern.memberId %>"><%= pattern.Member.first_name %></a></h4>
             </section>
             <section class='intro'>                   
-                <img src='<%= pattern.introImg %>'>
+                <img src='<%= pattern.Design.imgUrl %>'>
                 <p><%= pattern.introContent %></p>                
             </section>
             <section class='steps'>
@@ -46,10 +46,12 @@
                 </div>
                 <div>
                     <% if (pattern.Design.imgUrl) { %>
-                    <h5>Once the pattern has been completed, will look similar to the image below:</h5>
-                    <img src='<%= pattern.Design.imgUrl %>'>
+                        <h5>Once the pattern has been completed, will look similar to the image below:</h5>
+                        <img src='<%= pattern.patternImg %>'>
+                        <h5><%= pattern.endingContent %></h5>
+                    <% } else { %>
+                        <h5><%= pattern.endingContent %></h5>
                     <% } %>
-                    <h5><%= pattern.endingContent %></h5>
                 </div>
             </section>
         </section>

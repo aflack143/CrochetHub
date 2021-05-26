@@ -23,7 +23,7 @@
             <h3><%=member.first_name%></h3>
             <form action="/member/profile/<%=member.id%>?_method=PUT" method="POST">
                 <label class='profileImg' for="profileImg">Profile Avatar:
-                    <% for (let i=0; i< allAvatar.length; i++) { %>
+                    <% for (let i=1; i< allAvatar.length; i++) { %>
                     <% if (i+1 === member.profileImg) { %>
                         <input checked type="radio" class='avatar' name="profileImg" value="<%= i+1 %>"><img src="<%= allAvatar[i].imgUrl %>">
                     <% } else { %>
@@ -36,7 +36,7 @@
                 <label for="last_name">Last Name:</label>
                 <input type="text" name="last_name" value="<%=member.last_name%>"><br>
                 <label for="aboutMe">About Me:</label>
-                <textarea type="text" name="aboutMe" rows="3" value="<%=member.aboutMe%>"></textarea><br>
+                <textarea type="text" name="aboutMe" rows="3" value="<%=member.aboutMe%>"><%=member.aboutMe%></textarea><br>
                 <label for="email">Email:</label>
                 <input type="text" name="email" value="<%=member.email%>"><br>
                 <label for="username">Username:</label>

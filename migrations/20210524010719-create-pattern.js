@@ -18,7 +18,7 @@ module.exports = {
         allowNull: false
       },
       introImg: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       introContent: {
         type: Sequelize.STRING,
@@ -33,7 +33,7 @@ module.exports = {
         allowNull: false
       },
       patternImg: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       endingContent: {
         type: Sequelize.STRING

@@ -44,7 +44,6 @@ const deleteMember = (req, res) => {
 };
 
 const editMember = (req, res) => {
-    console.log(req.body);
     Member.update(req.body, { where: {
         id: req.params.index },
         returning: true, 

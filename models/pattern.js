@@ -12,17 +12,17 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Pattern.belongsTo(models.Member, {foreignKey: 'memberId'}),
       Pattern.hasMany(models.Comment, {foreignKey: 'commentId'}),
-      Pattern.belongsTo(models.Design, {foreignKey: 'patternImg'})
+      Pattern.belongsTo(models.Design, {foreignKey: 'introImg'})
     }
   };
   Pattern.init({
     title: DataTypes.STRING,
     patternType: DataTypes.STRING,
-    introImg: DataTypes.STRING,
+    introImg: DataTypes.INTEGER,
     introContent: DataTypes.STRING,
     itemsNeeded: DataTypes.STRING,
     contentHowTo: DataTypes.STRING,
-    patternImg: DataTypes.INTEGER,
+    patternImg: DataTypes.STRING,
     endingContent: DataTypes.STRING,
     memberId: DataTypes.INTEGER,
     commentId: DataTypes.INTEGER

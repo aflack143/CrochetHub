@@ -6,11 +6,11 @@ module.exports = {
       {
         title: 'Admin Project',
         patternType: 'crochet',
-        introImg: 'https://c1.wallpaperflare.com/preview/717/821/266/yarn-variegated-crochet-bulky.jpg',
+        introImg: 8,
         introContent: 'Admin setting up initial project',
         itemsNeeded: 'Hook: size G',
         contentHowTo: 'To begin-chain 25',
-        patternImg: 8,
+        patternImg: 'https://c1.wallpaperflare.com/preview/717/821/266/yarn-variegated-crochet-bulky.jpg',
 	      endingContent: 'thank you',
         memberId: 1,
         commentId: null
@@ -18,11 +18,11 @@ module.exports = {
     {
         title: 'Test Project',
         patternType: 'crochet',
-        introImg: 'https://p0.pikist.com/photos/275/7/wool-hook-craft-yarn-thread-hobby-crochet-hook-cotton-fashion.jpg',
+        introImg: 10,
         introContent: 'Tester creating 1st project',
         itemsNeeded: 'Hook: size G',
         contentHowTo: 'Row 1-create circle with 5 sc',
-        patternImg: 10,
+        patternImg: 'https://p0.pikist.com/photos/275/7/wool-hook-craft-yarn-thread-hobby-crochet-hook-cotton-fashion.jpg',
 	      endingContent: 'thank you',
         memberId: 1,
         commentId: null

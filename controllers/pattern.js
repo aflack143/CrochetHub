@@ -61,19 +61,40 @@ const showPattern = (req, res) => {
 };
 
 const renderEdit = (req, res) => {
-    Pattern.findByPk(req.params.index).then(pattern => {
-        res.render("edit.ejs", { pattern });
+    Pattern.findByPk(req.params.index, {
+        include: [
+            {
+                model: Member,
+                attributes: ['id','first_name','aboutMe','profileImg'],
+                include: [{
+                    model: Avatar,
+                    attributes: ['id','imgName','imgUrl'] 
+                }] 
+            },
+            {
+                model: Design,
+                attributes: ['id','imgName','imgUrl'] 
+        }]
+    }).then(pattern => {
+        Member.findAll().then(member => {
+            Design.findAll().then(design => {
+                res.render("edit.ejs", { pattern, member, design });
+            })
+        })     
     })
 };
 
 const postEdit = (req, res) => {
     Pattern.update(req.body, {
         where: { 
-            id: req.params.index 
-        }}
+            id: req.params.index },
+        returning: true, 
+        plain: true
+        }
         ).then(pattern => {
-        res.redirect(`/${pattern.patternType}/${pattern.id}`);
-    })
+            console.log(pattern);
+            res.redirect(`/pattern/${pattern[1].dataValues.patternType}/${pattern[1].dataValues.id}`);
+    }).catch(err => {console.log(err)})
 };
 
 const deletePattern = (req, res) => {
