@@ -41,7 +41,11 @@ const showPattern = (req, res) => {
     Pattern.findByPk(req.params.index, {
         include: [{
             model: Member,
-            attributes: ['id','first_name','aboutMe','profileImg'] 
+            attributes: ['id','first_name','aboutMe','profileImg'],
+            include: [{
+                model: Avatar,
+                attributes: ['id','imgName','imgUrl'] 
+            }] 
         },
         {
             model: Design,

@@ -1,4 +1,17 @@
-<%- include('./template/header') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/pattern.css">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <title>pattern</title>
+</head>
+<body>
+    <header>
+        <h2>Crochet Hub</h2>
         <nav>
             <div class="navitem">
                 <input type="search" name="search" placeholder="search"/>
@@ -12,14 +25,30 @@
                     <a href="/pattern/<%= pattern.patternType %>/<%= pattern.id %>/edit">Edit Pattern</a>
         </nav>
     </header>
-<main>
-    <h2><%= pattern.title %></h2>
-    <h4>Created by <a href="/member/profile/<%= pattern.memberId %>"><%= pattern.Member.first_name %></a></h4>
-    <p>Image:<img src='<%= pattern.introImg %>'></p>
-    <p><%= pattern.introContent %></p>
-    <p><%= pattern.itemsNeeded %></p>
-    <p><%= pattern.contentHowTo %></p>
-    <p>Image: <img src='<%= pattern.Design.imgUrl %>'></p>
-    <p><%= pattern.endingContent %></p>
+    <main>
+        <section id='pattern'>
+            <section class='title'>
+                <h2><%= pattern.title %></h2>
+                <h4>Created by <a href="/member/profile/<%= pattern.memberId %>"><%= pattern.Member.first_name %></a></h4>
+                <p><img src='<%= pattern.introImg %>'></p>
+                <p><%= pattern.introContent %></p>
+            </section>
+            <section class='steps'>
+            <p><%= pattern.itemsNeeded %></p>
+            <p><%= pattern.contentHowTo %></p>
+            <p><img src='<%= pattern.Design.imgUrl %>'></p>
+            <p><%= pattern.endingContent %></p>
+            </section>
+        </section>
+        <aside>
+            <div id='creator'>
+                <h5>About Author:</h5>
+                <div>
+                    <p><img src='<%= pattern.Member.Avatar.imgUrl %>'></p>
+                    <p><%= pattern.Member.first_name %></p>
+                </div>
+                <p><%= pattern.Member.aboutMe %></p>
+            </div>
+        </aside>
 <%- include('./template/footer') %>
 
