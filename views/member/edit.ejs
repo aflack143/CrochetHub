@@ -1,17 +1,29 @@
-<%- include('../template/header') %>
-<nav>
-    <div class="navitem">
-        <input type="search" name="search" placeholder="search"/>
-        <input type="submit" name="search"/>
-    </div>
-    <a class="navitem" href="/">Home</a>
-    <div class="dropdown navitem">
-        <button class="dropbtn">MENU</button>
-        <div class="dropdown-content">
-            <a href="/pattern/create">Create Pattern</a>
-            <a href="/member/profile/<%=member.id%>">View Profile</a>
-</nav>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h2>Crochet Hub</h2>
+        <nav>
+            <div class="navitem">
+                <input type="search" name="search" placeholder="search"/>
+                <input type="submit" name="search"/>
+            </div>
+            <a class="navitem" href="/">Home</a>
+            <div class="dropdown navitem">
+                <button class="dropbtn">MENU</button>
+                <div class="dropdown-content">
+                    <a href="/pattern/create">Create Pattern</a>
+                    <a href="/member/profile/<%=member.id%>">View Profile</a>
+        </nav>
+    </header>
 <main>
     <section>
         <% if (member) { %>

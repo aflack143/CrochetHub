@@ -15,10 +15,7 @@
     <%- include('./template/navbar') %>
 <section class='welcome'>
     <div class='pattern'>
-        <p>Review patterns below or search</p>
-        <input type="search" name="search" placeholder="search"/>
-        <input type="submit" name="search"/>
-        <ul>
+        <p>Review patterns below</p>
         <% for (let i=0; i < pattern.length; i++) { %>
             <li>
                 <b><a href="/pattern/<%= pattern[i].patternType %>/<%= pattern[i].id %>"><%= pattern[i].title%></a></b>

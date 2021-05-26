@@ -52,43 +52,7 @@ const editMember = (req, res) => {
     res.redirect(`/member/profile/${updatedMember[1].dataValues.id}`)}
 )};
 
-const index = (req, res) => {
-    res.render('member/index.ejs')};
-
-// const signup = (req, res) => {
-//     res.render('member/signup.ejs')};
-
-// const postSignup = (req, res) => {
-//     Member.create(req.body).then(member => {
-//         res.redirect(`/member/profile/${member.id}`)
-//     })
-// };
-
-// const login = (req, res) => {
-//     res.render('member/login.ejs')
-// };
-
-// const postLogin = (req, res) => {
-//     Member.findOne({where: { username: req.body.username }}).then(member =>{
-//         if (member) {    
-//             if (member.password === req.body.password) {
-//                 res.redirect(`/member/profile/${member.id}`);
-//             } else {
-//                 res.redirect("/member/login");}
-//         } else {
-//             res.redirect("/member/login");
-//         }
-//     }
-// )};
-
-
-
 module.exports = {
-    index,
-    // signup,
-    // postSignup,
-    // login, 
-    // postLogin,
     showMember,
     renderEdit,
     editMember,

@@ -1,36 +1,48 @@
-<%- include('../template/header') %>
-<nav>
-    <div class="navitem">
-        <input type="search" name="search" placeholder="search"/>
-        <input type="submit" name="search"/>
-    </div>
-    <a class="navitem" href="/">Home</a>
-    <div class="dropdown navitem">
-        <button class="dropbtn">MENU</button>
-        <div class="dropdown-content">
-            <a href="/pattern/create">Create Pattern</a>
-            <a href="/member/profile/<%=member.id%>/edit">Edit Profile</a>
-</nav>
-</header>
-<main>
-    <section>
-        <% if (member) { %>
-            <% if (member.profileImg) { %>
-                <img src="<%=member.Avatar.imgUrl%>">
-            <% } else { %>
-                <img src="/images/avatars/default-tinkerbell.png">
-            <% }  %>
-        <h3><%=member.first_name%></h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h2>Crochet Hub</h2>
+        <nav>
+            <div class="navitem">
+                <input type="search" name="search" placeholder="search"/>
+                <input type="submit" name="search"/>
+            </div>
+            <a class="navitem" href="/">Home</a>
+            <div class="dropdown navitem">
+                <button class="dropbtn">MENU</button>
+                <div class="dropdown-content">
+                    <a href="/pattern/create">Create New Pattern</a>
+                    <a href="/member/profile/<%=member.id%>/edit">Edit Profile</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <% if (member) { %>
+                <% if (member.profileImg) { %>
+                    <img src="<%=member.Avatar.imgUrl%>">
+                <% } else { %>
+                    <img src="/images/avatars/default-tinkerbell.png">
+                <% }  %>
+            <h3><%=member.first_name%></h3>
 
-        <% } %>
-        <h4>About Me:</h4>
-        <p><%=member.aboutMe%></p>
-    </section>
-    <article>
-        <h4>Projects</h4>
-        <% for (let i=0; i < member.Patterns.length; i++) { %>
-            <p><a href='/pattern/<%=member.Patterns[i].patternType%>/<%=member.Patterns[i].id%>'><%= member.Patterns[i].title %></a></p>
-            <p><%= member.Patterns[i].introContent %></p>
-        <% } %>
-    </article>
+            <% } %>
+            <h4>About Me:</h4>
+            <p><%=member.aboutMe%></p>
+        </section>
+        <article>
+            <h4>Projects</h4>
+            <% for (let i=0; i < member.Patterns.length; i++) { %>
+                <p><a href='/pattern/<%=member.Patterns[i].patternType%>/<%=member.Patterns[i].id%>'><%= member.Patterns[i].title %></a></p>
+                <p><%= member.Patterns[i].introContent %></p>
+            <% } %>
+        </article>
 <%- include('../template/footer') %>

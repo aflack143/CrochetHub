@@ -13,16 +13,14 @@
     <header>
         <h1>Crochet Hub</h1>
         <nav>
-            <div class="navitem">
-                <input type="search" name="search" placeholder="search"/>
-                <input type="submit" name="search"/>
-            </div>
             <a class="navitem" href="/">Home</a>
             <div class="dropdown navitem">
                 <button class="dropbtn">MENU</button>
                 <div class="dropdown-content">
-                    <a href="/pattern/create">Create Pattern</a>
+                    <a href="/pattern/create">Create New Pattern</a>
                     <a href="/pattern/<%= pattern.patternType %>/<%= pattern.id %>/edit">Edit Pattern</a>
+                    <a href="/member/profile/<%=pattern.Member.id%>/edit">Edit Profile</a>
+                    <a href="/member/profile/<%=pattern.Member.id%>">View Profile</a>
         </nav>
     </header>
     <main>
