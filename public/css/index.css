@@ -23,6 +23,21 @@ main {
     width: 100vw;
 }
 
+.welcome {
+    display: flex;
+    justify-content: center;
+
+}
+
+.indexPat, .indexMbr {
+    width: 50%;
+    /* padding: 5%; */
+    background-color: rgba(250, 250, 210, 0.568);
+    margin: 10%;
+    height: fit-content;
+    color: black;
+}
+
 li {
     list-style: none;
 }
