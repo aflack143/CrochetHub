@@ -30,10 +30,14 @@
                     <h5>Current Patterns</h5>
                     <ul>
                         <% for (let i=0; i < pattern.length; i++) { %>
+                            <% for (let m=0; m < member.length; m++) { %>
+                                <% if (pattern[i].memberId === member[m].id) { %>
                             <li>
                                 <b><a href="/pattern/<%= pattern[i].patternType %>/<%= pattern[i].id %>"><%= pattern[i].title%></a></b>
                                 <p><%= pattern[i].introContent%></p>
                             </li>
+                        <% } %>
+                        <% } %>
                         <% } %>
                     </ul>
                 </div>

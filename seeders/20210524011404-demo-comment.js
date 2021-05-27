@@ -5,7 +5,7 @@ module.exports = {
     await queryInterface.bulkInsert('Comments', [
       {
         memberId: 2,
-        content: "Please leave a comment below.",
+        content: "Great job!",
         patternId: 1
       },
       {

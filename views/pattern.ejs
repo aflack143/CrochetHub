@@ -61,10 +61,14 @@
                             <div class='commentBox'>
                                 <% if (pattern.Comments) { %>
                                     <% for (let i=0; i < pattern.Comments.length; i++) { %>
-                                        <div class=eachBox>
-                                            <b><img class='commentAv' src='<%= pattern.Comments[i].Member.Avatar.imgUrl %>'><%= pattern.Comments[i].Member.username %>: </b>
-                                            <p class='eachPattern'><%= pattern.Comments[i].content %></p>
-                                        </div>
+                                        <% for (let m=0; m < member.length; m++) { %>
+                                            <% if (pattern.Comments[i].memberId === member[m].id) { %>
+                                                <div class=eachBox>
+                                                    <b><img class='commentAv' src='<%= pattern.Comments[i].Member.Avatar.imgUrl %>'><%= pattern.Comments[i].Member.username %>: </b>
+                                                    <p class='eachPattern'><%= pattern.Comments[i].content %></p>
+                                                </div>
+                                            <% } %>
+                                        <% } %>
                                     <% } %>
                                 <% } %>
                             </div>

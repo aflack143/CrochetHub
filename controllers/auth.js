@@ -16,8 +16,7 @@ const postSignup = (req, res) => {
                 res.status(500).json(err);
             }
             req.body.password = hashedPwd;
-            Member.create(req.body).then(newMember => {
-                
+            Member.create(req.body).then(newMember => {    
                 const token = jwt.sign(
                     {
                         username: newMember.username,
@@ -28,7 +27,6 @@ const postSignup = (req, res) => {
                         expiresIn: '30 days'
                     },
                 );
-                console.log(token);
                 res.redirect(`/member/profile/${newMember.id}`)
                 })
             .catch(err => {
@@ -41,7 +39,9 @@ const postSignup = (req, res) => {
 };
 
 
-const login = (req, res) => {res.render('auth/login.ejs')};
+const login = (req, res) => {
+    res.render('auth/login.ejs')
+};
 
 const postLogin = (req, res) => {
     Member.findOne({where: { username: req.body.username }}).then(foundMember =>{
@@ -58,7 +58,6 @@ const postLogin = (req, res) => {
                             expiresIn: '30 days'
                         },
                     );
-                    console.log(`Token: ${token}`);
                     res.redirect(`/member/profile/${foundMember.id}`);
                 } else {
                     res.send("Incorrect password");

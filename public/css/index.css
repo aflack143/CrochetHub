@@ -71,7 +71,7 @@ main {
     width: fit-content;
 }
 
-.btn {
+[type="submit"] {
     background-color: goldenrod;
     color: lightgoldenrodyellow;
 }

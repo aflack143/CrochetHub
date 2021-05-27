@@ -10,6 +10,7 @@ const postComment = (req, res) => {
             attributes: ['id','username'],
             include: [{
                 model: Avatar,
+                attributes: ['id','imgName','imgUrl'] 
             }]
         },
         {
@@ -17,7 +18,14 @@ const postComment = (req, res) => {
             attributes: ['id','patternType'] 
         }]
     }).then(comment => {
+        Pattern.findAll(req.body, {
+            where: { 
+                id: req.body.patternId },
+            returning: true, 
+            plain: true
+            }).then(pattern => {
             res.redirect(`/pattern/${req.body.patternType}/${req.body.patternId}`)
+        });
     });
 };
 

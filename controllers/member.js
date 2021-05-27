@@ -11,7 +11,9 @@ const showMember = (req, res) => {
             model: Avatar,
         }]
     }).then(member => {
-        res.render('member/profile.ejs', {member})
+        Pattern.findAll().then(pattern => {
+            res.render('member/profile.ejs', {member, pattern})
+        })
     })
 };
 
@@ -23,10 +25,13 @@ const renderEdit = (req, res) => {
         },
         {
             model: Avatar,
+            attributes: ['id','imgName', 'imgUrl'] 
         }]
     }).then(member => {
-        Avatar.findAll().then(allAvatar => {
-            res.render('member/edit.ejs', {member, allAvatar})
+        Pattern.findAll().then(allPattern => {
+            Avatar.findAll().then(allAvatar => {
+                res.render('member/edit.ejs', {member, allPattern, allAvatar})
+            })
         })
     })
 };
