@@ -24,7 +24,7 @@
                     <a href="/member/profile/<%=member.id%>/edit">Edit Profile</a>
         </nav>
     </header>
-    <main>
+    <main id='member'>
         <section>
             <% if (member) { %>
                 <% if (member.profileImg) { %>
@@ -39,10 +39,14 @@
             <p><%=member.aboutMe%></p>
         </section>
         <article>
-            <h4>Projects</h4>
-            <% for (let i=0; i < member.Patterns.length; i++) { %>
-                <p><a href='/pattern/<%=member.Patterns[i].patternType%>/<%=member.Patterns[i].id%>'><%= member.Patterns[i].title %></a></p>
-                <p><%= member.Patterns[i].introContent %></p>
-            <% } %>
+            <div class='patternCont'>
+                <h4>Created Patterns</h4>
+                <div class='eachBox'>
+                    <% for (let i=0; i < member.Patterns.length; i++) { %>
+                        <p class='eachPattern' title='<%= member.Patterns[i].introContent %>'><a href='/pattern/<%=member.Patterns[i].patternType%>/<%=member.Patterns[i].id%>'><%= member.Patterns[i].title %></a></p>
+                        <!-- <p><%= member.Patterns[i].introContent %></p> -->
+                    <% } %>
+                </div>
+            </div>
         </article>
 <%- include('../template/footer') %>

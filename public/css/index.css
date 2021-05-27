@@ -41,6 +41,50 @@ main {
     border: black 2px solid;
 }
 
+#member {
+    background: url("../images/designs/knitting-needles-lying-near-bunch-yarn-pastel-background_141856-146.jpg") no-repeat center fixed;
+    background-size: cover;
+    width: 100vw;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+}
+
+
+.patternCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.eachBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.eachPattern {
+    width: 16%;
+    /* height: 50px; */
+    /* background-color: lightgreen; */
+    position: relative;
+    text-align: center;
+    margin: 20px 10%;
+}
+    
+.eachPattern:hover:after {
+    position: relative;
+    content: attr(title);
+    display: inline-block;
+    left: 0px;
+    top: 0px;
+    padding: 5px;
+    background-color: lightgoldenrodyellow;
+    color: coral;
+}
+
+
 li {
     list-style: none;
 }
