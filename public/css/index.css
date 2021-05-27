@@ -23,68 +23,6 @@ main {
     width: 100vw;
 }
 
-.auth {
-    background: url("../images/designs/multiple-colored-horizontal.jpg") no-repeat center fixed;
-    background-size: cover;
-    width: 100vw;
-    height: 85vh;
-    display: flex;
-    justify-content: center;
-}
-
-.auth div {
-    margin-top: 30px;
-    padding: 30px;
-    width: fit-content;
-    height: fit-content;
-    background-color: rgba(250, 250, 210, 0.85);
-    border: black 2px solid;
-}
-
-#member {
-    background: url("../images/designs/knitting-needles-lying-near-bunch-yarn-pastel-background_141856-146.jpg") no-repeat center fixed;
-    background-size: cover;
-    width: 100vw;
-    height: 85vh;
-    display: flex;
-    justify-content: center;
-}
-
-
-.patternCont {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.eachBox {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-
-.eachPattern {
-    width: 16%;
-    /* height: 50px; */
-    /* background-color: lightgreen; */
-    position: relative;
-    text-align: center;
-    margin: 20px 10%;
-}
-    
-.eachPattern:hover:after {
-    position: relative;
-    content: attr(title);
-    display: inline-block;
-    left: 0px;
-    top: 0px;
-    padding: 5px;
-    background-color: lightgoldenrodyellow;
-    color: coral;
-}
-
-
 li {
     list-style: none;
 }
@@ -159,16 +97,4 @@ nav {
 .dropdown:hover .dropdown-content {
    display: block;
 }
-
-.profileImg img {
-    vertical-align: middle;
-    width: 50px;
-    height: 50px;
-    border-radius: 10%;
-}
-   
-/* CHECKED STYLES */
-[type=radio]:checked + img {
-    outline: 2px solid #f00;
-  }
 
