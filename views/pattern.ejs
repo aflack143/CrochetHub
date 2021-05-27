@@ -52,6 +52,33 @@
                     <% } %>
                 </div>
             </section>
+            <section>
+                <div class='patternCont'>
+                    <h4>Comments</h4>
+                    <div class='eachBox'>
+                        <% if (pattern.Comments) { %>
+                            <% for (let i=0; i < pattern.Comments.length; i++) { %>
+                                <p class='eachPattern'><%= pattern.Comments[i].Member.username %>:</p>
+                                <p class='eachPattern'><%= pattern.Comments[i].content %></p>
+                            <% } %>
+                            <% } %>
+                            <form class='createBox' action="/comment" method="POST">
+                                <label class='labels' for="memberId">Created by:</label>
+                                 <select type="dropdown" name="memberId" id="memberId" class='input-box' placeholder="Enter your username">
+                                    <option style="display:none"> -- select username -- </option>
+                                    <% for (let i=0; i< member.length; i++) { %>
+                                        <option value="<%= member[i].id %>"><%= member[i].username %></option>
+                                    <% } %>
+                                </select>
+                                <label for='content'>Add Comment:</label>
+                                <textarea name="content" id="content" class='input-box' rows='3' placeholder="Add comment..."></textarea>
+                                <input type="hidden" name='patternId' value='<%=pattern.id%>'>
+                                <input type="hidden" name='patternType' value='<%=pattern.patternType%>'>
+                                <input type="submit" name="" class='btn btn-reverse comment' value="Add Comment!">
+                            </form>
+                    </div>
+                </div>
+            </section>
         </section>
         <aside>
             <div id='creator'>

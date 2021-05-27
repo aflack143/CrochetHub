@@ -27,7 +27,6 @@ const renderNew = (req, res) => {
 };
 
 const postNew = (req, res) => {
-    console.log(req.body)
         Pattern.create(req.body, {
             include: [{
                 model: Member,
@@ -53,12 +52,21 @@ const showPattern = (req, res) => {
         {
             model: Design,
             attributes: ['id','imgName','imgUrl'] 
+        },
+        {
+            model: Comment,
+            attributes: ['id','memberId','content','patternId'],
+            include: [{
+                model: Member,
+            }]
         }]
     }).then(pattern => {
         Member.findAll().then(member => {
             Design.findAll().then(design => {
-                res.render('pattern.ejs', {pattern, member, design})
+                Comment.findAll().then(comment => {
+                res.render('pattern.ejs', {pattern, member, design, comment})
             })
+        })
         })
     })
 };

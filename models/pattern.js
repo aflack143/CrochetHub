@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Pattern.belongsTo(models.Member, {foreignKey: 'memberId'}),
-      Pattern.hasMany(models.Comment, {foreignKey: 'commentId'}),
+      Pattern.hasMany(models.Comment, {foreignKey: 'patternId'}),
       Pattern.belongsTo(models.Design, {foreignKey: 'introImg'})
     }
   };

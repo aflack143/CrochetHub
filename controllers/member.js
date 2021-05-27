@@ -1,6 +1,5 @@
 const Member = require('../models').Member;
 const Pattern = require('../models').Pattern;
-const Comment = require('../models').Comment;
 const Avatar = require('../models').Avatar;
 
 const showMember = (req, res) => {
@@ -32,9 +31,10 @@ const renderEdit = (req, res) => {
         Pattern.findAll().then(allPattern => {
             Avatar.findAll().then(allAvatar => {
             res.render('member/edit.ejs', {member, allPattern, allAvatar})
+            })
         })
     })
-})};
+};
 
 
 const deleteMember = (req, res) => {
@@ -48,9 +48,10 @@ const editMember = (req, res) => {
         id: req.params.index },
         returning: true, 
         plain: true
-}).then(updatedMember => {
-    res.redirect(`/member/profile/${updatedMember[1].dataValues.id}`)}
-)};
+    }).then(updatedMember => {
+        res.redirect(`/member/profile/${updatedMember[1].dataValues.id}`)
+    })
+};
 
 module.exports = {
     showMember,

@@ -11,13 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Comment.belongsTo(models.Member, {foreignKey: 'memberId'}),
-      Comment.belongsTo(models.Pattern, {foreignKey: 'commentId'})
+      Comment.belongsTo(models.Pattern, {foreignKey: 'patternId'})
 
     }
   };
   Comment.init({
     memberId: DataTypes.INTEGER,
-    content: DataTypes.STRING
+    content: DataTypes.STRING,
+    patternId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Comment',

@@ -5,11 +5,13 @@ module.exports = {
     await queryInterface.bulkInsert('Comments', [
       {
         memberId: 2,
-        content: "Please leave a comment below."
+        content: "Please leave a comment below.",
+        patternId: 1
       },
       {
         memberId: 1,
-        content: "Testing, comments..1..2..3, Test Test!"
+        content: "Testing, comments..1..2..3, Test Test!",
+        patternId: 2
       }], {});
   },
 

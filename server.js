@@ -28,6 +28,7 @@ const verifyToken = (req, res, next) => {
 
 app.use('/auth', routes.auth);
 app.use('/member', routes.member);
+app.use('/comment', routes.comment);
 app.use('/', routes.pattern);
 
 app.listen(process.env.PORT, () => {
