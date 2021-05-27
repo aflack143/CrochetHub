@@ -40,6 +40,7 @@ label {
     display: inline-block;
     width: 30%; 
     font-size: 18px;
+    text-align: right;
 }
 .radioAv {
     flex-direction: row;
@@ -58,12 +59,14 @@ label {
     display: inline-block;
     flex-wrap: wrap;
     justify-content: right;
+    text-align: center;
     width: 100%;
 }
 
 .editMbr {
     justify-content: right;
-    width: 75%;
+    width: 65%;
+    margin-top: 2px;
 }
 
 

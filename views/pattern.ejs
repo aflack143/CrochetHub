@@ -27,7 +27,7 @@
         <section id='pattern'>
             <section class='title'>
                 <h2><%= pattern.title %></h2>
-                <h4>Created by <a href="/member/profile/<%= pattern.memberId %>"><%= pattern.Member.first_name %></a></h4>
+                <h4>Pattern Type: <%= pattern.patternType %> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Created by <a href="/member/profile/<%= pattern.memberId %>"><%= pattern.Member.first_name %></a></h4>
             </section>
             <section class='intro'>                   
                 <img src='<%= pattern.Design.imgUrl %>'>
