@@ -1,66 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/member.css">
-    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
-    <title>edit profile</title>
-</head>
-<body id="bluefooter">
-    <header>
-        <h2>Crochet Hub</h2>
-        <nav>
-            <a class="navitem" href="/">HOME</a>
-            <div class="dropdown navitem">
-                <button class="dropbtn">MENU</button>
-                <div class="dropdown-content">
-                    <a href="/pattern/create">Create Pattern</a>
-                    <a href="/member/profile/<%=member.id%>">View Profile</a>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/member.css">
+        <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+        <title>member edit</title>
+    </head>
+    <body id="bluefooter">
+        <header>
+            <h2>Crochet Hub</h2>
+            <nav>
+                <a class="navitem" href="/">HOME</a>
+                <div class="dropdown navitem">
+                    <button class="dropbtn">MENU</button>
+                    <div class="dropdown-content">
+                        <a href="/pattern/create">Create Pattern</a>
+                        <a href="/member/profile/<%=member.id%>">View Profile</a>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <section id='memberedit'>
-            <div class='formbox'>
-                <% if (member) { %>
-                    <% if (member.profileImg) { %>
-                        <img src="<%=member.Avatar.imgUrl%>">
-                    <% } else { %>
-                        <img src="/images/avatars/default-tinkerbell.png">
-                    <% }  %>
-                    <h3><%=member.first_name%></h3>
-                    <form action="/member/profile/<%=member.id%>?_method=PUT" method="POST">
-                        <div class='radioAv'>
-                            <label class='profileImg' for="profileImg">Profile Avatar:
-                                <% for (let i=1; i< allAvatar.length; i++) { %>
-                                <% if (i+1 === member.profileImg) { %>
-                                    <input checked type="radio" class='avatar' name="profileImg" value="<%= i+1 %>"><img src="<%= allAvatar[i].imgUrl %>">
-                                <% } else { %>
-                                    <input type="radio" class='avatar' name="profileImg" value="<%= i+1 %>"><img src="<%= allAvatar[i].imgUrl %>">
+            </nav>
+        </header>
+        <main>
+            <section id='memberedit'>
+                <div class='formbox'>
+                    <% if (member) { %>
+                        <% if (member.profileImg) { %>
+                            <img src="<%=member.Avatar.imgUrl%>">
+                        <% } else { %>
+                            <img src="/images/avatars/default-tinkerbell.png">
+                        <% }  %>
+                        <h3><%=member.first_name%></h3>
+                        <form action="/member/profile/<%=member.id%>?_method=PUT" method="POST">
+                            <div class='radioAv'>
+                                <label class='profileImg' for="profileImg">Profile Avatar:
+                                    <% for (let i=1; i< allAvatar.length; i++) { %>
+                                    <% if (i+1 === member.profileImg) { %>
+                                        <input checked type="radio" class='avatar' name="profileImg" value="<%= i+1 %>"><img src="<%= allAvatar[i].imgUrl %>">
+                                    <% } else { %>
+                                        <input type="radio" class='avatar' name="profileImg" value="<%= i+1 %>"><img src="<%= allAvatar[i].imgUrl %>">
+                                        <% } %>
                                     <% } %>
-                                <% } %>
-                            </label><br>
-                        </div>
-                        <label for="first_name">First Name:</label>
-                        <input class='editMbr' type="text" name="first_name" value="<%=member.first_name%>"><br>
-                        <label for="last_name">Last Name:</label>
-                        <input class='editMbr' type="text" name="last_name" value="<%=member.last_name%>"><br>
-                        <label for="aboutMe">About Me:</label>
-                        <textarea class='editMbr' type="text" name="aboutMe" rows="3" value="<%=member.aboutMe%>"><%=member.aboutMe%></textarea><br>
-                        <label for="email">Email:</label>
-                        <input class='editMbr' type="text" name="email" value="<%=member.email%>"><br>
-                        <label for="username">Username:</label>
-                        <input class='editMbr' type="text" name="username" value="<%=member.username%>"><br>
-                        <input type="submit" value="Update profile"/>
-                    </form>
-                    <form action="/member/profile/<%= member.id %>?_method=DELETE" method="POST">
-                        <input type="submit" value="Delete Profile"/>
-                    </form>
-                <% } %>
-            </div>
-        </section>
-<%- include('../template/footer') %>
+                                </label><br>
+                            </div>
+                            <label for="first_name">First Name:</label>
+                            <input class='editMbr' type="text" name="first_name" value="<%=member.first_name%>"><br>
+                            <label for="last_name">Last Name:</label>
+                            <input class='editMbr' type="text" name="last_name" value="<%=member.last_name%>"><br>
+                            <label for="aboutMe">About Me:</label>
+                            <textarea class='editMbr' type="text" name="aboutMe" rows="3" value="<%=member.aboutMe%>"><%=member.aboutMe%></textarea><br>
+                            <label for="email">Email:</label>
+                            <input class='editMbr' type="text" name="email" value="<%=member.email%>"><br>
+                            <label for="username">Username:</label>
+                            <input class='editMbr' type="text" name="username" value="<%=member.username%>"><br>
+                            <input type="submit" value="Update profile"/>
+                        </form>
+                        <form action="/member/profile/<%= member.id %>?_method=DELETE" method="POST">
+                            <input type="submit" value="Delete Profile"/>
+                        </form>
+                    <% } %>
+                </div>
+            </section>
+        <%- include('../template/footer') %>

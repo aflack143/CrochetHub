@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/member.css">
-    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
-    <title>member profile</title>
-</head>
-<body id="bluefooter">
-    <header>
-        <h2>Crochet Hub</h2>
-        <nav>
-            <a class="navitem" href="/">HOME</a>
-            <div class="dropdown navitem">
-                <button class="dropbtn">MENU</button>
-                <div class="dropdown-content">
-                    <a href="/pattern/create">Create New Pattern</a>
-                    <a href="/member/profile/<%=member.id%>/edit">Edit Profile</a>
-        </nav>
-    </header>
-    <main>
-        <div id='member'>
-            <section class='formbox'>
-                <div></div>
-                <% if (member) { %>
-                    <% if (member.profileImg) { %>
-                        <img src="<%=member.Avatar.imgUrl%>">
-                    <% } else { %>
-                        <img src="/images/avatars/default-tinkerbell.png">
-                    <% }  %>
-                <h3><%=member.first_name%></h3>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/member.css">
+        <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+        <title>member profile</title>
+    </head>
+    <body id="bluefooter">
+        <header>
+            <h2>Crochet Hub</h2>
+            <nav>
+                <a class="navitem" href="/">HOME</a>
+                <div class="dropdown navitem">
+                    <button class="dropbtn">MENU</button>
+                    <div class="dropdown-content">
+                        <a href="/pattern/create">Create New Pattern</a>
+                        <a href="/member/profile/<%=member.id%>/edit">Edit Profile</a>
+            </nav>
+        </header>
+        <main>
+            <div id='member'>
+                <section class='formbox'>
+                    <div></div>
+                    <% if (member) { %>
+                        <% if (member.profileImg) { %>
+                            <img src="<%=member.Avatar.imgUrl%>">
+                        <% } else { %>
+                            <img src="/images/avatars/default-tinkerbell.png">
+                        <% }  %>
+                    <h3><%=member.first_name%></h3>
 
-                <% } %>
-                <h4>About Me:</h4>
-                <p><%=member.aboutMe%></p>
-            </section>
-            <article class='formbox'>
-                <div class='patternCont'>
-                    <h4>Created Patterns</h4>
-                    <div class='eachBox'>
-                        <% for (let i=0; i < member.Patterns.length; i++) { %>
-                            <p class='eachPattern' title='<%= member.Patterns[i].introContent %>'><a href='/pattern/<%=member.Patterns[i].patternType%>/<%=member.Patterns[i].id%>'><%= member.Patterns[i].title %></a></p>
-                        <% } %>
+                    <% } %>
+                    <h4>About Me:</h4>
+                    <p><%=member.aboutMe%></p>
+                </section>
+                <article class='formbox'>
+                    <div class='patternCont'>
+                        <h4>Created Patterns</h4>
+                        <div class='eachBox'>
+                            <% for (let i=0; i < member.Patterns.length; i++) { %>
+                                <p class='eachPattern' title='<%= member.Patterns[i].introContent %>'><a href='/pattern/<%=member.Patterns[i].patternType%>/<%=member.Patterns[i].id%>'><%= member.Patterns[i].title %></a></p>
+                            <% } %>
+                        </div>
                     </div>
-                </div>
-            </article>
-        </div>
-<%- include('../template/footer') %>
+                </article>
+            </div>
+        <%- include('../template/footer') %>

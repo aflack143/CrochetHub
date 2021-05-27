@@ -1,91 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/create-edit-pattern.css">
-    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
-    <title>update pattern</title>
-</head>
-<body>
-    <header>
-        <h2>Crochet Hub</h2>
-        <nav>
-            <a class="navitem" href="/">HOME</a>
-            <div class="dropdown navitem">
-                <button class="dropbtn">MENU</button>
-                <div class="dropdown-content">
-                    <a href="/pattern/create">Create New Pattern</a>
-                    <a href="/pattern/<%= pattern.patternType %>/<%= pattern.id %>">View Pattern</a>
-                    <a href="/member/profile/<%=pattern.Member.id%>/edit">Edit Profile</a>
-                    <a href="/member/profile/<%=pattern.Member.id%>">View Profile</a>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/create-edit-pattern.css">
+        <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+        <title>update pattern</title>
+    </head>
+    <body>
+        <header>
+            <h2>Crochet Hub</h2>
+            <nav>
+                <a class="navitem" href="/">HOME</a>
+                <div class="dropdown navitem">
+                    <button class="dropbtn">MENU</button>
+                    <div class="dropdown-content">
+                        <a href="/pattern/create">Create New Pattern</a>
+                        <a href="/pattern/<%= pattern.patternType %>/<%= pattern.id %>">View Pattern</a>
+                        <a href="/member/profile/<%=pattern.Member.id%>/edit">Edit Profile</a>
+                        <a href="/member/profile/<%=pattern.Member.id%>">View Profile</a>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <section id='create' class='container'>
-            <div class='formbox'>
-                <h4>Update Pattern</h4>
-                <form class='createBox' action="/pattern/<%=pattern.patternType%>/<%=pattern.id%>?_method=PUT" method="POST">
-                    <div>
-                        <label class='labels' for="title">Title:</label>
-                        <input type="text" name="title" id="title" class='input-box' maxlength="100" value="<%=pattern.title%>"><br>
-                    </div>
-                    <div class='radiobtn'>
-                        <label class='labels' for="patternType">Pattern Type:
-                            <% if (pattern.patternType === 'crochet') { %>
-                                <input checked type=radio name="patternType" value="CROCHET">CROCHET
-                                <input type=radio name="patternType" value="KNITTING">KNITTING
-                                <input type=radio name="patternType" value="SEWING">SEWING
-                            <% } else if (pattern.patternType === 'knitting') { %>
-                                <input type=radio name="patternType" value="CROCHET">CROCHET
-                                <input checked type=radio name="patternType" value="KNITTING">KNITTING
-                                <input type=radio name="patternType" value="SEWING">SEWING                       
-                            <% } else if (pattern.patternType === 'sewing') { %>
-                                <input type=radio name="patternType" value="CROCHET">CROCHET
-                                <input type=radio name="patternType" value="KNITTING">KNITTING
-                                <input checked type=radio name="patternType" value="SEWING">SEWING
-                            <% } %>
-                        </label><br>
-                    </div>
-                    <div>
-                        <label class='labels' for="introImg">Title Image:</label>
-                            <% for (let i=0; i< design.length; i++) { %>
-                                <% if (i+1 === design.id) { %>
-                                    <input checked type="radio" class='introImg' name="introImg" value="<%= i+1 %>"><img src="<%= design[i].imgUrl %>">
-                                <% } else { %>
-                                    <input type="radio" class='introImg' name="introImg" value="<%= i+1 %>"><img src="<%= design[i].imgUrl %>">
+            </nav>
+        </header>
+        <main>
+            <section id='create' class='container'>
+                <div class='formbox'>
+                    <h4>Update Pattern</h4>
+                    <form class='createBox' action="/pattern/<%=pattern.patternType%>/<%=pattern.id%>?_method=PUT" method="POST">
+                        <div>
+                            <label class='labels' for="title">Title:</label>
+                            <input type="text" name="title" id="title" class='input-box' maxlength="100" value="<%=pattern.title%>"><br>
+                        </div>
+                        <div class='radiobtn'>
+                            <label class='labels' for="patternType">Pattern Type:
+                                <% if (pattern.patternType === 'crochet') { %>
+                                    <input checked type=radio name="patternType" value="CROCHET">CROCHET
+                                    <input type=radio name="patternType" value="KNITTING">KNITTING
+                                    <input type=radio name="patternType" value="SEWING">SEWING
+                                <% } else if (pattern.patternType === 'knitting') { %>
+                                    <input type=radio name="patternType" value="CROCHET">CROCHET
+                                    <input checked type=radio name="patternType" value="KNITTING">KNITTING
+                                    <input type=radio name="patternType" value="SEWING">SEWING                       
+                                <% } else if (pattern.patternType === 'sewing') { %>
+                                    <input type=radio name="patternType" value="CROCHET">CROCHET
+                                    <input type=radio name="patternType" value="KNITTING">KNITTING
+                                    <input checked type=radio name="patternType" value="SEWING">SEWING
                                 <% } %>
-                            <% } %>
-                        </label><br>
-                    </div>
-                    <div>
-                        <label class='labels' for="introContent">About the Pattern:</label>
-                        <textarea type="text" name="introContent" id="introContent" class='input-box' rows='2' maxlength="100" value="<%= pattern.introContent %>"><%= pattern.introContent %></textarea><br>
-                    </div>
-                    <div>
-                        <label class='labels' for="itemsNeeded">Items/Tools Needed:</label>
-                        <textarea type="text" name="itemsNeeded" id="itemsNeeded" class='input-box' rows='3' value="<%= pattern.itemsNeeded %>"><%= pattern.itemsNeeded %></textarea><br>
-                    </div>
-                    <div>
-                        <label class='labels' for="contentHowTo">Pattern Instructions:</label>
-                        <textarea name="contentHowTo" id="contentHowTo" class='input-box' rows='15' value="<%= pattern.contentHowTo %>"><%= pattern.contentHowTo %></textarea><br>
-                    </div>
-                    <div>
-                        <label class='labels' for="patternImg">Product Image:</label>
-                        <input type="text" name="patternImg" id="patternImg" class='input-box' value="<%= pattern.patternImg %>"><br>
-                    </div>
-                    <div>
-                        <label class='labels' for="endingContent">Closing Comment(s):</label>
-                        <textarea name="endingContent" id="endingContent" class='input-box' rows='3' value="<%=pattern.endingContent%>"><%=pattern.endingContent%></textarea><br>
-                    </div>
-                    <div>
-                        <input type="submit" name="" class='btn btn-reverse' value="Update Pattern!">
-                    </div>
-                </form>
-            </div>
-        </section>
-<%- include('./template/footer') %>
+                            </label><br>
+                        </div>
+                        <div>
+                            <label class='labels' for="introImg">Title Image:</label>
+                                <% for (let i=0; i< design.length; i++) { %>
+                                    <% if (i+1 === design.id) { %>
+                                        <input checked type="radio" class='introImg' name="introImg" value="<%= i+1 %>"><img src="<%= design[i].imgUrl %>">
+                                    <% } else { %>
+                                        <input type="radio" class='introImg' name="introImg" value="<%= i+1 %>"><img src="<%= design[i].imgUrl %>">
+                                    <% } %>
+                                <% } %>
+                            </label><br>
+                        </div>
+                        <div>
+                            <label class='labels' for="introContent">About the Pattern:</label>
+                            <textarea type="text" name="introContent" id="introContent" class='input-box' rows='2' maxlength="100" value="<%= pattern.introContent %>"><%= pattern.introContent %></textarea><br>
+                        </div>
+                        <div>
+                            <label class='labels' for="itemsNeeded">Items/Tools Needed:</label>
+                            <textarea type="text" name="itemsNeeded" id="itemsNeeded" class='input-box' rows='3' value="<%= pattern.itemsNeeded %>"><%= pattern.itemsNeeded %></textarea><br>
+                        </div>
+                        <div>
+                            <label class='labels' for="contentHowTo">Pattern Instructions:</label>
+                            <textarea name="contentHowTo" id="contentHowTo" class='input-box' rows='15' value="<%= pattern.contentHowTo %>"><%= pattern.contentHowTo %></textarea><br>
+                        </div>
+                        <div>
+                            <label class='labels' for="patternImg">Product Image:</label>
+                            <input type="text" name="patternImg" id="patternImg" class='input-box' value="<%= pattern.patternImg %>"><br>
+                        </div>
+                        <div>
+                            <label class='labels' for="endingContent">Closing Comment(s):</label>
+                            <textarea name="endingContent" id="endingContent" class='input-box' rows='3' value="<%=pattern.endingContent%>"><%=pattern.endingContent%></textarea><br>
+                        </div>
+                        <div>
+                            <input type="submit" name="" class='btn btn-reverse' value="Update Pattern!">
+                        </div>
+                    </form>
+                </div>
+            </section>
+        <%- include('./template/footer') %>

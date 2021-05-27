@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
-    <title>welcome page</title>
-</head>
-<body>
-    <header>
-        <h1>Welcome to Crochet Hub</h1>
-        <h3>Community sharing crochet patterns and other fun projects.</h3>
-        <nav>
-            <a class="navitem" href="/">HOME</a>
-            <div class="dropdown navitem">
-                <button class="dropbtn">MENU</button>
-                <div class="dropdown-content">
-                    <a href="/auth/signup">Sign Up</a>
-                    <a href="/auth/login">Log In</a>
-                    <a href="/pattern/create">Create New Pattern</a>   
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/index.css">
+        <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+        <title>welcome page</title>
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to Crochet Hub</h1>
+            <h3>Community sharing crochet patterns and other fun projects.</h3>
+            <nav>
+                <a class="navitem" href="/">HOME</a>
+                <div class="dropdown navitem">
+                    <button class="dropbtn">MENU</button>
+                    <div class="dropdown-content">
+                        <a href="/auth/signup">Sign Up</a>
+                        <a href="/auth/login">Log In</a>
+                        <a href="/pattern/create">Create New Pattern</a>   
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
-    <main id="index">
-        <section class='welcome'>
-            <div class='indexPat'>
-                <h5>Current Patterns</h5>
-                <ul>
-                    <% for (let i=0; i < pattern.length; i++) { %>
-                        <li>
-                            <b><a href="/pattern/<%= pattern[i].patternType %>/<%= pattern[i].id %>"><%= pattern[i].title%></a></b>
-                            <p><%= pattern[i].introContent%></p>
-                        </li>
-                    <% } %>
-                </ul>
-            </div>
-            <div class='indexMbr'>
-                <h5>Current Members</h5>
-                <ul>
-                    <% for (let i=0; i < member.length; i++) { %>
-                        <li>
-                            <b><a href="/member/profile/<%= member[i].id %>"><%= member[i].username%></a></b>
-                        </li>
-                    <% } %>
-                </ul>
-            </div>
-        </section>
-<%- include('./template/footer') %>
+            </nav>
+        </header>
+        <main id="index">
+            <section class='welcome'>
+                <div class='indexPat'>
+                    <h5>Current Patterns</h5>
+                    <ul>
+                        <% for (let i=0; i < pattern.length; i++) { %>
+                            <li>
+                                <b><a href="/pattern/<%= pattern[i].patternType %>/<%= pattern[i].id %>"><%= pattern[i].title%></a></b>
+                                <p><%= pattern[i].introContent%></p>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+                <div class='indexMbr'>
+                    <h5>Current Members</h5>
+                    <ul>
+                        <% for (let i=0; i < member.length; i++) { %>
+                            <li>
+                                <b><a href="/member/profile/<%= member[i].id %>"><%= member[i].username%></a></b>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </section>
+        <%- include('./template/footer') %>

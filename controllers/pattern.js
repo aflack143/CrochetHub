@@ -27,15 +27,13 @@ const renderNew = (req, res) => {
 };
 
 const postNew = (req, res) => {
-        Pattern.create(req.body, {
-            include: [{
-                model: Member,
-                attributes: ['id','username'] 
-            }]
-        }).then(newPattern => {
-            Member.findAll().then(member => {
-                res.redirect(`/pattern/${newPattern.patternType}/${newPattern.id}`)
-        });
+    Pattern.create(req.body, {
+        include: [{
+            model: Member,
+            attributes: ['id','username'] 
+        }]
+    }).then(newPattern => {
+        res.redirect(`/pattern/${newPattern.patternType}/${newPattern.id}`)
     });
 };
 
@@ -43,19 +41,15 @@ const showPattern = (req, res) => {
     Pattern.findByPk(req.params.index, {
         include: [{
             model: Member,
-            attributes: ['id','first_name','aboutMe','profileImg'],
             include: [{
                 model: Avatar,
-                attributes: ['id','imgName','imgUrl'] 
             }] 
         },
         {
             model: Design,
-            attributes: ['id','imgName','imgUrl'] 
         },
         {
             model: Comment,
-            attributes: ['id','memberId','content','patternId'],
             include: [{
                 model: Member,
                 include: [{
@@ -65,35 +59,25 @@ const showPattern = (req, res) => {
         }]
     }).then(pattern => {
         Member.findAll().then(member => {
-            Design.findAll().then(design => {
-                Comment.findAll().then(comment => {
-                res.render('pattern.ejs', {pattern, member, design, comment})
-            })
-        })
+            res.render('pattern.ejs', {pattern, member})
         })
     })
 };
 
 const renderEdit = (req, res) => {
     Pattern.findByPk(req.params.index, {
-        include: [
-            {
-                model: Member,
-                attributes: ['id','first_name','aboutMe','profileImg'],
-                include: [{
-                    model: Avatar,
-                    attributes: ['id','imgName','imgUrl'] 
-                }] 
-            },
-            {
-                model: Design,
-                attributes: ['id','imgName','imgUrl'] 
+        include: [{
+            model: Member,
+            include: [{
+                model: Avatar,
+            }] 
+        },
+        {
+            model: Design,
         }]
     }).then(pattern => {
-        Member.findAll().then(member => {
-            Design.findAll().then(design => {
-                res.render("edit.ejs", { pattern, member, design });
-            })
+        Design.findAll().then(design => {
+            res.render("edit.ejs", { pattern, design });
         })     
     })
 };
@@ -104,10 +88,8 @@ const postEdit = (req, res) => {
             id: req.params.index },
         returning: true, 
         plain: true
-        }
-        ).then(pattern => {
-            console.log(pattern);
-            res.redirect(`/pattern/${pattern[1].dataValues.patternType}/${pattern[1].dataValues.id}`);
+    }).then(pattern => {
+        res.redirect(`/pattern/${pattern[1].dataValues.patternType}/${pattern[1].dataValues.id}`);
     }).catch(err => {console.log(err)})
 };
 

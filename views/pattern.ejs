@@ -1,102 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/pattern.css">
-    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
-    <title>pattern</title>
-</head>
-<body>
-    <header>
-        <h1>Crochet Hub</h1>
-        <nav>
-            <a class="navitem" href="/">HOME</a>
-            <div class="dropdown navitem">
-                <button class="dropbtn">MENU</button>
-                <div class="dropdown-content">
-                    <a href="/pattern/create">Create New Pattern</a>
-                    <a href="/pattern/<%= pattern.patternType %>/<%= pattern.id %>/edit">Edit Pattern</a>
-                    <a href="/member/profile/<%=pattern.Member.id%>/edit">Edit Profile</a>
-                    <a href="/member/profile/<%=pattern.Member.id%>">View Profile</a>
-        </nav>
-    </header>
-    <main>
-        <section id='pattern'>
-            <section class='title'>
-                <h2><%= pattern.title %></h2>
-                <h4>Pattern Type: <%= pattern.patternType %> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Created by: <a href="/member/profile/<%= pattern.memberId %>"><%= pattern.Member.first_name %></a></h4>
-            </section>
-            <section class='intro'>                   
-                <img src='<%= pattern.Design.imgUrl %>'>
-                <p><%= pattern.introContent %></p>                
-            </section>
-            <section class='steps'>
-                <div>
-                    <h5>Before beginning, these are the items that will be needed:</h5>
-                    <p><%= pattern.itemsNeeded %></p>
-                </div>
-                <div>
-                    <h5>Ready to begin, pattern provided below:</h5>
-                    <p><%= pattern.contentHowTo %></p>
-                </div>
-                <div>
-                    <% if (pattern.patternImg) { %>
-                        <h5>Once the pattern has been completed, will look similar to the image below:</h5>
-                        <img src='<%= pattern.patternImg %>'>
-                        <h5><%= pattern.endingContent %></h5>
-                    <% } else { %>
-                        <h5><%= pattern.endingContent %></h5>
-                    <% } %>
-                </div>
-            </section>
-            <section>
-                <div class='commentContainer'>
-                    <div class='displayBox'>
-                        <h4>Comments</h4>
-                        <div class='commentBox'>
-                            <% if (pattern.Comments) { %>
-                                <% for (let i=0; i < pattern.Comments.length; i++) { %>
-                                    <div class=eachBox>
-                                        <!-- <div class="contentBox"> -->
-                                            <b><img class='commentAv' src='<%= pattern.Comments[i].Member.Avatar.imgUrl %>'><%= pattern.Comments[i].Member.username %>: </b>
-                                            <!-- <p class='commentName'><%= pattern.Comments[i].Member.username %>:</p> -->
-                                        <!-- </div> -->
-                                            <p class='eachPattern'><%= pattern.Comments[i].content %></p>
-                                    </div>
-                                <% } %>
-                            <% } %>
-                        </div>
-                        <form class='createBox' action="/comment" method="POST">
-                            <label class='labels' for="memberId">Created by:</label>
-                             <select type="dropdown" name="memberId" id="memberId" class='input-box' placeholder="Enter your username">
-                                <option style="display:none"> -- select username -- </option>
-                                <% for (let i=0; i< member.length; i++) { %>
-                                    <option value="<%= member[i].id %>"><%= member[i].username %></option>
-                                <% } %>
-                            </select>
-                            <label for='content'>Add Comment:</label>
-                            <textarea name="content" id="content" class='input-box' rows='3' placeholder="Add comment..."></textarea>
-                            <input type="hidden" name='patternId' value='<%=pattern.id%>'>
-                            <input type="hidden" name='patternType' value='<%=pattern.patternType%>'>
-                            <input type="submit" name="" class='btn btn-reverse comment' value="Add Comment!">
-                        </form>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/pattern.css">
+        <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+        <title>pattern</title>
+    </head>
+    <body>
+        <header>
+            <h1>Crochet Hub</h1>
+            <nav>
+                <a class="navitem" href="/">HOME</a>
+                <div class="dropdown navitem">
+                    <button class="dropbtn">MENU</button>
+                    <div class="dropdown-content">
+                        <a href="/pattern/create">Create New Pattern</a>
+                        <a href="/pattern/<%= pattern.patternType %>/<%= pattern.id %>/edit">Edit Pattern</a>
+                        <a href="/member/profile/<%=pattern.Member.id%>/edit">Edit Profile</a>
+                        <a href="/member/profile/<%=pattern.Member.id%>">View Profile</a>
                     </div>
                 </div>
-                </div>
+            </nav>
+        </header>
+        <main>
+            <section id='pattern'>
+                <section class='title'>
+                    <h2><%= pattern.title %></h2>
+                    <h4>Pattern Type: <%= pattern.patternType %> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Created by: <a href="/member/profile/<%= pattern.memberId %>"><%= pattern.Member.first_name %></a></h4>
+                </section>
+                <section class='intro'>                   
+                    <img src='<%= pattern.Design.imgUrl %>'>
+                    <p><%= pattern.introContent %></p>                
+                </section>
+                <section class='steps'>
+                    <div>
+                        <h5>Before beginning, these are the items that will be needed:</h5>
+                        <p><%= pattern.itemsNeeded %></p>
+                    </div>
+                    <div>
+                        <h5>Ready to begin, pattern provided below:</h5>
+                        <p><%= pattern.contentHowTo %></p>
+                    </div>
+                    <div>
+                        <% if (pattern.patternImg) { %>
+                            <h5>Once the pattern has been completed, will look similar to the image below:</h5>
+                            <img src='<%= pattern.patternImg %>'>
+                            <h5><%= pattern.endingContent %></h5>
+                        <% } else { %>
+                            <h5><%= pattern.endingContent %></h5>
+                        <% } %>
+                    </div>
+                </section>
+                <section>
+                    <div class='commentContainer'>
+                        <div class='displayBox'>
+                            <h4>Comments</h4>
+                            <div class='commentBox'>
+                                <% if (pattern.Comments) { %>
+                                    <% for (let i=0; i < pattern.Comments.length; i++) { %>
+                                        <div class=eachBox>
+                                            <b><img class='commentAv' src='<%= pattern.Comments[i].Member.Avatar.imgUrl %>'><%= pattern.Comments[i].Member.username %>: </b>
+                                            <p class='eachPattern'><%= pattern.Comments[i].content %></p>
+                                        </div>
+                                    <% } %>
+                                <% } %>
+                            </div>
+                            <form class='createBox' action="/comment" method="POST">
+                                <label class='labels' for="memberId">Created by:</label>
+                                <select type="dropdown" name="memberId" id="memberId" class='input-box' placeholder="Enter your username">
+                                    <option style="display:none"> -- select username -- </option>
+                                    <% for (let i=0; i< member.length; i++) { %>
+                                        <option value="<%= member[i].id %>"><%= member[i].username %></option>
+                                    <% } %>
+                                </select>
+                                <label for='content'>Add Comment:</label>
+                                <textarea name="content" id="content" class='input-box' rows='3' placeholder="Add comment..."></textarea>
+                                <input type="hidden" name='patternId' value='<%=pattern.id%>'>
+                                <input type="hidden" name='patternType' value='<%=pattern.patternType%>'>
+                                <input type="submit" name="" class='btn btn-reverse comment' value="Add Comment!">
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </section>
             </section>
-        </section>
-        <aside>
-            <div id='creator'>
-                <h5>About Author:</h5>
-                <div>
-                    <p><img src='<%= pattern.Member.Avatar.imgUrl %>'></p>
-                    <p><%= pattern.Member.first_name %></p>
+            <aside>
+                <div id='creator'>
+                    <h5>About Author:</h5>
+                    <div>
+                        <p><img src='<%= pattern.Member.Avatar.imgUrl %>'></p>
+                        <p><%= pattern.Member.first_name %></p>
+                    </div>
+                    <p><%= pattern.Member.aboutMe %></p>
                 </div>
-                <p><%= pattern.Member.aboutMe %></p>
-            </div>
-        </aside>
-<%- include('./template/footer') %>
-
+            </aside>
+        <%- include('./template/footer') %>

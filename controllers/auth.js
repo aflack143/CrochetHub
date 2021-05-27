@@ -1,12 +1,8 @@
 require('dotenv').config();
 
 const Member = require('../models').Member;
-const Avatar = require('../models').Avatar;
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-// const Pattern = require('../models').Pattern;
-// const Comment = require('../models').Comment;
-
 
 const signup = (req, res) => {res.render('auth/signup.ejs')};
     
@@ -58,9 +54,9 @@ const postLogin = (req, res) => {
                             id: foundMember.id
                         },
                         process.env.JWT_SECRET,
-                            {
-                                expiresIn: '30 days'
-                            },
+                        {
+                            expiresIn: '30 days'
+                        },
                     );
                     console.log(`Token: ${token}`);
                     res.redirect(`/member/profile/${foundMember.id}`);
@@ -72,16 +68,9 @@ const postLogin = (req, res) => {
     });
 };
 
-const logout = (req, res) => {
-    delete req.body.username;
-    res.redirect('/auth/login');
-    console.log(`Token: ${token}`);
-}; 
-
 module.exports = {
     signup,
     postSignup,
     login, 
-    postLogin,
-    logout
+    postLogin
 }

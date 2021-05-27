@@ -6,16 +6,12 @@ const showMember = (req, res) => {
     Member.findByPk(req.params.index, {
         include: [{
             model: Pattern,
-            attributes: ['id','memberId','patternType','title', 'introContent'] 
         },
         {
             model: Avatar,
-            attributes: ['id','imgName', 'imgUrl'] 
         }]
     }).then(member => {
-        Pattern.findAll().then(pattern => {
-            res.render('member/profile.ejs', {member, pattern})
-        })
+        res.render('member/profile.ejs', {member})
     })
 };
 
@@ -27,13 +23,10 @@ const renderEdit = (req, res) => {
         },
         {
             model: Avatar,
-            attributes: ['id','imgName', 'imgUrl'] 
         }]
     }).then(member => {
-        Pattern.findAll().then(allPattern => {
-            Avatar.findAll().then(allAvatar => {
-            res.render('member/edit.ejs', {member, allPattern, allAvatar})
-            })
+        Avatar.findAll().then(allAvatar => {
+            res.render('member/edit.ejs', {member, allAvatar})
         })
     })
 };
