@@ -27,17 +27,18 @@
     <main>
         <section class='welcome'>
             <div class='indexPat'>
-                <h5>Review current patterns below</h5>
+                <h5>Current Patterns</h5>
                 <ul>
                     <% for (let i=0; i < pattern.length; i++) { %>
                         <li>
                             <b><a href="/pattern/<%= pattern[i].patternType %>/<%= pattern[i].id %>"><%= pattern[i].title%></a></b>
+                            <p><%= pattern[i].introContent%></p>
                         </li>
                     <% } %>
                 </ul>
             </div>
             <div class='indexMbr'>
-                <h5>Review current members below</h5>
+                <h5>Current Members</h5>
                 <ul>
                     <% for (let i=0; i < member.length; i++) { %>
                         <li>
