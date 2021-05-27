@@ -11,20 +11,20 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(methodOverride("_method"));
 
-// const verifyToken = (req, res, next) => {
-//     let token = req.query.token;
+const verifyToken = (req, res, next) => {
+    let token = req.query.token;
 
-//     jwt.verify(token, process.env.JWT_SECRET, (err, decodedMember) => {
-//             if (err || !decodedMember) {
-//                 // return res.status(401).json({ error: 'Unauthorized Request'});
-//                 res.send(err);
-//             }
-//             req.user = decodedMember;
-//             console.log(decodedMember);
-//             next();
-//         }
-//     )
-// }
+    jwt.verify(token, process.env.JWT_SECRET, (err, decodedMember) => {
+            if (err || !decodedMember) {
+                // return res.status(401).json({ error: 'Unauthorized Request'});
+                res.send(err);
+            }
+            req.user = decodedMember;
+            console.log(decodedMember);
+            next();
+        }
+    )
+}
 
 app.use('/auth', routes.auth);
 app.use('/member', routes.member);

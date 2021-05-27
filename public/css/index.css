@@ -1,7 +1,3 @@
-/* * {
-    border: 1px solid darkolivegreen;
-} */
-
 body {
     background-color: goldenrod;
     color: coral;
@@ -27,6 +23,24 @@ main {
     width: 100vw;
 }
 
+.auth {
+    background: url("../images/designs/multiple-colored-horizontal.jpg") no-repeat center fixed;
+    background-size: cover;
+    width: 100vw;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+}
+
+.auth div {
+    margin-top: 30px;
+    padding: 30px;
+    width: fit-content;
+    height: fit-content;
+    background-color: rgba(250, 250, 210, 0.85);
+    border: black 2px solid;
+}
+
 li {
     list-style: none;
 }
@@ -34,9 +48,12 @@ li {
 a {
     text-decoration: none;
     color: inherit;
-   }
+}
+
+footer {
+    color: lightgoldenrodyellow;
+}
    
-/* Nav bar dropdown START */
 header {
     font-size: larger;
     margin: 0;
@@ -53,7 +70,7 @@ nav {
     flex-direction: row; 
     justify-content: flex-end;
     margin-bottom: 5px;
-    /* background-color: rgb(202, 172, 4); */
+    font-size: 28px; 
 }
 .navitem {
     margin: 0px 20px;
@@ -64,7 +81,7 @@ nav {
 } 
 .dropdown .dropbtn {
    overflow: hidden;
-   font-size: 20px;  
+   font-size: 28px;  
    border: none;
    outline: none;
    color: inherit;
@@ -83,8 +100,8 @@ nav {
    text-shadow: none;
 }
 .dropdown-content a {
-   /* float: left; */
    color: black;
+   background-color: lightgoldenrodyellow;
    padding: 12px 16px;
    text-decoration: none;
    display: block;
@@ -93,15 +110,11 @@ nav {
 } 
 .dropdown-content a:hover {
    background-color: cornflowerblue;    
-   /* font-weight: bolder; */
    text-shadow: inherit;
 }
 .dropdown:hover .dropdown-content {
    display: block;
 }
-/* Nav bar dropdown END */
-
-/* profile images Start */
 
 .profileImg img {
     vertical-align: middle;

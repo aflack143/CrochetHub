@@ -51,10 +51,6 @@
                             <% } %>
                         </label><br>
                     </div>
-                    <!-- <div>
-                        <label class='labels' for="introImg">Title Image:</label>
-                        <input type="text" name="introImg" id="introImg" class='input-box' maxlength="100" value="<%= pattern.introImg %>"><br>
-                    </div> -->
                     <div>
                         <label class='labels' for="introImg">Title Image:</label>
                             <% for (let i=0; i< design.length; i++) { %>
@@ -78,35 +74,13 @@
                         <label class='labels' for="contentHowTo">Pattern Instructions:</label>
                         <textarea name="contentHowTo" id="contentHowTo" class='input-box' rows='15' value="<%= pattern.contentHowTo %>"><%= pattern.contentHowTo %></textarea><br>
                     </div>
-                    <!-- <div>
-                        <label class='labels' for="patternImg">Product Image:</label>
-                            <% for (let i=0; i< design.length; i++) { %>
-                                <% if (i+1 === design.id) { %>
-                                    <input checked type="radio" class='patternImg' name="patternImg" value="<%= i+1 %>"><img src="<%= design[i].imgUrl %>">
-                                <% } else { %>
-                                    <input type="radio" class='patternImg' name="patternImg" value="<%= i+1 %>"><img src="<%= design[i].imgUrl %>">
-                                <% } %>
-                            <% } %>
-                        </label><br>
-                    </div> -->
                     <div>
                         <label class='labels' for="patternImg">Product Image:</label>
-                        <input type="text" name="patternImg" id="patternImg" class='input-box' maxlength="100" value="<%= pattern.patternImg %>"><br>
+                        <input type="text" name="patternImg" id="patternImg" class='input-box' value="<%= pattern.patternImg %>"><br>
                     </div>
                     <div>
                         <label class='labels' for="endingContent">Closing Comment(s):</label>
                         <textarea name="endingContent" id="endingContent" class='input-box' rows='3' value="<%=pattern.endingContent%>"><%=pattern.endingContent%></textarea><br>
-                    </div>
-                    <div>
-                        <label class='labels' for="memberId">Created by:</label>
-                        <select type="dropdown" name="memberId" id="memberId" class='input-box' value='<%= pattern.memberId %>'>
-                            <% for (let i=0; i< member.length; i++) { %>
-                                <% if (pattern.memberId) { %>
-                                    <option value='<%= pattern.memberId %>'><%= pattern.Member.username %></option>
-                                <% } %>    
-                                    <option value="<%= member[i].id %>"><%= member[i].username %></option>
-                            <% } %>
-                    </select><br>
                     </div>
                     <div>
                         <input type="submit" name="" class='btn btn-reverse' value="Update Pattern!">

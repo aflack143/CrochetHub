@@ -1,18 +1,44 @@
-<%- include('../template/header') %>
-<%- include('../template/navbar') %>
-    <h4>Create your own CrochetHub account.</h4>
-    <form action="/auth" method="POST">
-        <label for="first_name">First Name:</label>
-        <input type="text" name="first_name" placeholder="first name"><br>
-        <label for="last_name">Last Name:</label>
-        <input type="text" name="last_name" placeholder="last name"><br>
-        <label for="email">Email:</label>
-        <input type="text" name="email" placeholder="email address"><br>
-        <label for="username">Username:</label>
-        <input type="text" name="username" placeholder="username"><br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" placeholder="password"><br>
-        <input type="submit" name="" value="Sign Up!">
-    </form>
-    <p>Already have an account?  <a href="/auth/login">Log In</a></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Crochet Hub</h1>
+        <h4>Community sharing their crochet patterns and other projects.</h2>
+        <nav>
+            <a class="navitem" href="/">HOME</a>
+            <div class="dropdown navitem">
+                <button class="dropbtn">MENU</button>
+                <div class="dropdown-content">
+                    <a href="/auth/login">Log In</a>
+                    <a href="/pattern/create">Create New Pattern</a>   
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class='auth'>
+        <div>
+            <h4>Create your own CrochetHub account.</h4>
+            <form action="/auth" method="POST">
+                <label for="first_name">First Name:</label>
+                <input type="text" name="first_name" placeholder="first name"><br>
+                <label for="last_name">Last Name:</label>
+                <input type="text" name="last_name" placeholder="last name"><br>
+                <label for="email">Email:</label>
+                <input type="text" name="email" placeholder="email address"><br>
+                <label for="username">Username:</label>
+                <input type="text" name="username" placeholder="username"><br>
+                <label for="password">Password:</label>
+                <input type="password" name="password" placeholder="password"><br>
+                <input type="submit" name="" value="Sign Up!">
+            </form>
+            <p>Already have an account?  <a href="/auth/login">Log In</a></p>
+        </div>
 <%- include('../template/footer') %>

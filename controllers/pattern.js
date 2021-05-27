@@ -17,8 +17,11 @@ const index = (req, res) => {
 
 const renderNew = (req, res) => {
     Member.findAll().then(member => {
-        res.render('create.ejs', {
-            member
+        Design.findAll().then(design => {
+            res.render('create.ejs', {
+                member,
+                design
+            })
         })
     })
 };

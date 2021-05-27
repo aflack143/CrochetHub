@@ -36,9 +36,16 @@
                             <input type=radio name="patternType" value="sewing">Sewing
                         </label><br>
                     </div>
-                    <div>
+                    <!-- <div>
                         <label class='labels' for="introImg">Title Image:</label>
                         <input type="text" name="introImg" id="introImg" class='input-box' maxlength="100" placeholder="eg. image url"><br>
+                    </div> -->
+                    <div>
+                        <label class='labels' for="introImg">Title Image:</label>
+                            <% for (let i=0; i< design.length; i++) { %>
+                                <input type="radio" class='introImg' name="introImg" value="<%= i+1 %>"><img src="<%= design[i].imgUrl %>">
+                            <% } %>
+                        </label><br>
                     </div>
                     <div>
                         <label class='labels' for="introContent">About the Pattern:</label>
@@ -54,7 +61,7 @@
                     </div>
                     <div>
                         <label class='labels' for="patternImg">Product Image:</label>
-                        <input type="text" name="patternImg" id="patternImg" class='input-box' maxlength="100" placeholder="eg. image url of completed project"><br>
+                        <input type="text" name="patternImg" id="patternImg" class='input-box' placeholder="eg. image url of completed project"><br>
                     </div>
                     <div>
                         <label class='labels' for="endingContent">Closing Comment(s):</label>

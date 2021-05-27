@@ -9,28 +9,40 @@
     <title>Document</title>
 </head>
 <body>
-<header>
-    <h1>Welcome to Crochet Hub</h1>
-    <h4>Community sharing their crochet patterns and other projects.</h2>
-    <%- include('./template/navbar') %>
-<section class='welcome'>
-    <div class='pattern'>
-        <p>Review patterns below</p>
-        <% for (let i=0; i < pattern.length; i++) { %>
-            <li>
-                <b><a href="/pattern/<%= pattern[i].patternType %>/<%= pattern[i].id %>"><%= pattern[i].title%></a></b>
-            </li>
-        <% } %>
-        </ul>
-    </div>
-    <div class='member'>
-        <ul>
-            <% for (let i=0; i < member.length; i++) { %>
-                <li>
-                    <b><a href="/member/profile/<%= member[i].id %>"><%= member[i].username%></a></b>
-                </li>
-            <% } %>
-        </ul>
-    </div>
-</section>
+    <header>
+        <h1>Welcome to Crochet Hub</h1>
+        <h4>Community sharing their crochet patterns and other projects.</h2>
+        <nav>
+            <a class="navitem" href="/">HOME</a>
+            <div class="dropdown navitem">
+                <button class="dropbtn">MENU</button>
+                <div class="dropdown-content">
+                    <a href="/auth/signup">Sign Up</a>
+                    <a href="/auth/login">Log In</a>
+                    <a href="/pattern/create">Create New Pattern</a>   
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class='welcome'>
+            <div class='pattern'>
+                <p>Review patterns below</p>
+                <% for (let i=0; i < pattern.length; i++) { %>
+                    <li>
+                        <b><a href="/pattern/<%= pattern[i].patternType %>/<%= pattern[i].id %>"><%= pattern[i].title%></a></b>
+                    </li>
+                <% } %>
+                </ul>
+            </div>
+            <div class='member'>
+                <ul>
+                    <% for (let i=0; i < member.length; i++) { %>
+                        <li>
+                            <b><a href="/member/profile/<%= member[i].id %>"><%= member[i].username%></a></b>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+        </section>
 <%- include('./template/footer') %>
