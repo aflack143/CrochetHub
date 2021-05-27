@@ -1,14 +1,15 @@
+
 .auth {
     background: url("../images/designs/design/yarn12.jpg") no-repeat center fixed;
     background-size: cover;
     width: 100vw;
-    height: 85vh;
+    min-height: 75vh;
     display: flex;
     justify-content: center;
 }
 
 .auth div {
-    margin-top: 30px;
+    margin: 30px 0;
     padding: 30px;
     width: fit-content;
     height: fit-content;
@@ -18,23 +19,27 @@
 
 #bluefooter {
     background-color: skyblue;
+    margin: 0;
 }
 
 #member, #memberedit {
     background: url("../images/designs/knitting-needles-lying-near-bunch-yarn-pastel-background_141856-146.jpg") no-repeat center fixed;
     background-size: cover;
-    width: 100vw;
-    height: 85vh;
+    min-width: 100vw;
+    min-height: 85vh;
+    height: fit-content;
     display: flex;
     justify-content: center;
+    display: flex;
+    flex-direction: row;
     color: black;
 }
 
-#member section, #member article, #memberedit section {
+.formbox {
     width: 50%;
+    height: fit-content;
     padding: 5%;
 }
-
 
 label {
     display: inline-block;
@@ -42,6 +47,7 @@ label {
     font-size: 18px;
     text-align: right;
 }
+
 .radioAv {
     flex-direction: row;
     flex-wrap: nowrap;
@@ -76,10 +82,6 @@ label {
     border-radius: 10%;
 }
    
-/* CHECKED STYLES */
-[type=radio]:checked + img {
-    outline: 2px solid #f00;
-  }
 
 .patternCont {
     display: flex;
@@ -115,3 +117,8 @@ label {
     color: black;
     font-weight: normal;
 }
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+    outline: 2px solid #f00;
+  }

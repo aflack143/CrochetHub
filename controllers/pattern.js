@@ -58,6 +58,9 @@ const showPattern = (req, res) => {
             attributes: ['id','memberId','content','patternId'],
             include: [{
                 model: Member,
+                include: [{
+                    model: Avatar,
+                }]
             }]
         }]
     }).then(pattern => {

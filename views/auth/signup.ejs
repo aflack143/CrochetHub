@@ -24,22 +24,24 @@
             </div>
         </nav>
     </header>
-    <main class='auth'>
-        <div>
-            <h4>Create your own CrochetHub account.</h4>
-            <form action="/auth" method="POST">
-                <label for="first_name">First Name:</label>
-                <input type="text" name="first_name" placeholder="first name"><br>
-                <label for="last_name">Last Name:</label>
-                <input type="text" name="last_name" placeholder="last name"><br>
-                <label for="email">Email:</label>
-                <input type="text" name="email" placeholder="email address"><br>
-                <label for="username">Username:</label>
-                <input type="text" name="username" placeholder="username"><br>
-                <label for="password">Password:</label>
-                <input type="password" name="password" placeholder="password"><br>
-                <input type="submit" name="" value="Sign Up!">
-            </form>
-            <p>Already have an account?  <a href="/auth/login">Log In</a></p>
+    <main>
+        <div class='auth'>  
+            <div> 
+                <h4>Create your own CrochetHub account.</h4>
+                <form action="/auth" method="POST">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name" placeholder="first name"><br>
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name" placeholder="last name"><br>
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" placeholder="email address"><br>
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" placeholder="username"><br>
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" placeholder="password"><br>
+                    <input type="submit" name="" value="Sign Up!">
+                </form>
+                <p>Already have an account?  <a href="/auth/login">Log In</a></p>
+            </div>
         </div>
 <%- include('../template/footer') %>

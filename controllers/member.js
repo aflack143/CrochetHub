@@ -15,7 +15,9 @@ const showMember = (req, res) => {
     }).then(member => {
         Pattern.findAll().then(pattern => {
             res.render('member/profile.ejs', {member, pattern})
-})})};
+        })
+    })
+};
 
 const renderEdit = (req, res) => {
     Member.findByPk(req.params.index, {

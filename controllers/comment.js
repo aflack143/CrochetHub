@@ -9,7 +9,11 @@ const postComment = (req, res) => {
     Comment.create(req.body, {
         include: [{
             model: Member,
-            attributes: ['id','username'] 
+            attributes: ['id','username'],
+            include: [{
+                model: Avatar,
+                attributes: ['id','imgName','imgUrl'] 
+            }]
         },
         {
             model: Pattern,

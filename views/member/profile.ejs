@@ -21,28 +21,31 @@
                     <a href="/member/profile/<%=member.id%>/edit">Edit Profile</a>
         </nav>
     </header>
-    <main id='member'>
-        <section>
-            <% if (member) { %>
-                <% if (member.profileImg) { %>
-                    <img src="<%=member.Avatar.imgUrl%>">
-                <% } else { %>
-                    <img src="/images/avatars/default-tinkerbell.png">
-                <% }  %>
-            <h3><%=member.first_name%></h3>
+    <main>
+        <div id='member'>
+            <section class='formbox'>
+                <div></div>
+                <% if (member) { %>
+                    <% if (member.profileImg) { %>
+                        <img src="<%=member.Avatar.imgUrl%>">
+                    <% } else { %>
+                        <img src="/images/avatars/default-tinkerbell.png">
+                    <% }  %>
+                <h3><%=member.first_name%></h3>
 
-            <% } %>
-            <h4>About Me:</h4>
-            <p><%=member.aboutMe%></p>
-        </section>
-        <article>
-            <div class='patternCont'>
-                <h4>Created Patterns</h4>
-                <div class='eachBox'>
-                    <% for (let i=0; i < member.Patterns.length; i++) { %>
-                        <p class='eachPattern' title='<%= member.Patterns[i].introContent %>'><a href='/pattern/<%=member.Patterns[i].patternType%>/<%=member.Patterns[i].id%>'><%= member.Patterns[i].title %></a></p>
-                    <% } %>
+                <% } %>
+                <h4>About Me:</h4>
+                <p><%=member.aboutMe%></p>
+            </section>
+            <article class='formbox'>
+                <div class='patternCont'>
+                    <h4>Created Patterns</h4>
+                    <div class='eachBox'>
+                        <% for (let i=0; i < member.Patterns.length; i++) { %>
+                            <p class='eachPattern' title='<%= member.Patterns[i].introContent %>'><a href='/pattern/<%=member.Patterns[i].patternType%>/<%=member.Patterns[i].id%>'><%= member.Patterns[i].title %></a></p>
+                        <% } %>
+                    </div>
                 </div>
-            </div>
-        </article>
+            </article>
+        </div>
 <%- include('../template/footer') %>

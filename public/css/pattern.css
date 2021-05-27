@@ -36,7 +36,6 @@ main {
     height: fit-content;
     margin: 0 0 0 10px;
     text-align: left;
-    /* border: 2px solid coral; */
     padding: 5px 25px 5px 5px;
     background-color: rgba(250, 234, 95, 0.5);
 }
@@ -61,7 +60,6 @@ aside {
     padding: 15% 5px;
     justify-content: space-around;
     width: 20%;
-
 }
 
 #creator {
@@ -96,4 +94,72 @@ aside {
 #creator p {
     margin: 2px;
     text-align: left;
+}
+
+.commentContainer {
+    width: 100%;
+    height: fit-content;
+}
+
+.commentContainer form {
+    margin-top: 10px;
+}
+
+.displayBox {
+    width: 80%;
+    height: fit-content;
+    background-color: rgba(253, 192, 121, 0.85);
+    border: coral 1px solid;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    margin: 10px 10%;
+    padding-bottom: 3%;
+}
+
+.commentBox {
+    width: 90%;
+    height: fit-content;
+    border: coral 1px solid;
+    margin: 0 5%;
+    background-color: rgba(255, 250, 205, .85);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.eachBox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    border: coral 1px solid;
+    margin: 0;
+}
+.eachBox b {
+    border: coral 1px solid;
+    width: 30%;
+    min-height: 40px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.eachBox p {
+    border: coral 1px solid;
+    width: 70%;
+    min-height: 40px;
+    margin: 0;
+    text-align: left;
+}
+
+.commentAv {
+    width: 25px;
+    height: 25px;
 }

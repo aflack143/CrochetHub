@@ -24,16 +24,18 @@
             </div>
         </nav>
     </header>
-    <main class='auth'>
-        <div>            
-            <h4>Welcome, please login below:</h4>
-            <form action="/auth/login" method="POST">
-                <label for="username">Username: </label>
-                <input type="text" name="username" placeholder="username"><br>
-                <label for="password">Password: </label>
-                <input type="password" name="password" placeholder="password""><br>
-                <input type="submit" value="Log In!">
-            </form>
-            <p>New User?  <a href="/auth/signup">Sign Up</a></p>
+    <main>
+        <div class='auth'>  
+            <div>          
+                <h4>Welcome, please login below:</h4>
+                <form action="/auth/login" method="POST">
+                    <label for="username">Username: </label>
+                    <input type="text" name="username" placeholder="username"><br>
+                    <label for="password">Password: </label>
+                    <input type="password" name="password" placeholder="password""><br>
+                    <input type="submit" value="Log In!">
+                </form>
+                <p>New User?  <a href="/auth/signup">Sign Up</a></p>
+            </div>
         </div>
 <%- include('../template/footer') %>
