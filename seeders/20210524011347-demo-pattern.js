@@ -10,7 +10,7 @@ module.exports = {
         introContent: 'Admin setting up initial project',
         itemsNeeded: 'Hook: size G',
         contentHowTo: 'To begin-chain 25',
-        patternImg: 'https://c1.wallpaperflare.com/preview/717/821/266/yarn-variegated-crochet-bulky.jpg',
+        patternImg: 'https://s3-us-west-2.amazonaws.com/cag.kp.images/LandingPages/VirtualMeetingBackgrounds/KP-Zoom_4.jpg',
 	      endingContent: 'thank you',
         memberId: 1,
         commentId: null
