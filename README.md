@@ -66,5 +66,8 @@ A central location for collection of crochet, knitting, and sewing projects.
 [Full-size Background](https://www.w3schools.com/css/css3_backgrounds.asp)
 [Popping out textbox when overing a name/link](https://stackoverflow.com/questions/54505305/textbox-on-mouse-hover)
 
+_And a big shoutout to Casey Harding for helping me along the way and providing me help to getting linebreaks using:_ ![image](https://user-images.githubusercontent.com/80013194/120005779-ce7cfb00-bf9d-11eb-8615-24b2cd4d7cb0.png)
+
+
 In the beginning, I was having an issue with my ports after a system shutdown. I learned the quick way to kill the port when it thinks its already in use: kill-port 3000  (or the port# you are using)
 [Kill Ports](https://www.npmjs.com/package/kill-port)
