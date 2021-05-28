@@ -159,3 +159,7 @@ nav {
    display: block;
 }
 
+textarea {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}

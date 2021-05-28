@@ -33,24 +33,24 @@
                 </section>
                 <section class='intro'>                   
                     <img src='<%= pattern.Design.imgUrl %>'>
-                    <p><%= pattern.introContent %></p>                
+                    <p style="white-space: pre-line"><%= pattern.introContent %></p>                
                 </section>
                 <section class='steps'>
                     <div>
                         <h5>Before beginning, these are the items that will be needed:</h5>
-                        <p><%= pattern.itemsNeeded %></p>
+                        <p style="white-space: pre-line"><%= pattern.itemsNeeded %></p>
                     </div>
                     <div>
                         <h5>Ready to begin, pattern provided below:</h5>
-                        <p><%= pattern.contentHowTo %></p>
+                        <p style="white-space: pre-line"><%= pattern.contentHowTo %></p>
                     </div>
                     <div>
                         <% if (pattern.patternImg) { %>
                             <h5>Once the pattern has been completed, will look similar to the image below:</h5>
                             <img src='<%= pattern.patternImg %>'>
-                            <h5><%= pattern.endingContent %></h5>
+                            <h5 style="white-space: pre-line"><%= pattern.endingContent %></h5>
                         <% } else { %>
-                            <h5><%= pattern.endingContent %></h5>
+                            <h5 style="white-space: pre-line"><%= pattern.endingContent %></h5>
                         <% } %>
                     </div>
                 </section>
